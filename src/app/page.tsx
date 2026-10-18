@@ -119,8 +119,26 @@ export default function Home() {
           */}
           <section
             aria-labelledby="hero-heading"
-            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col items-center justify-center py-10 text-center sm:min-h-[calc(100svh-5.25rem)] sm:py-16`}
+            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col sm:min-h-[calc(100svh-5.25rem)]`}
           >
+          {/*
+            Two groups, and the split is the whole point of this layout.
+
+            The lockup group takes the remaining height and centres itself in
+            it, so the mark, name, role, and CTAs sit optically centred in the
+            tile. The strip is a sibling, not a child of that group, so it is
+            pushed to the bottom edge by the section's flex rather than
+            floating in the middle.
+
+            Centring everything in one column was the earlier arrangement and
+            it wasted the height this tile just gained: measured at 1440x900,
+            135 to 243px of dead space sat between the strip and the bottom of
+            the screen, which made a viewport-tall hero look no taller than a
+            short one. Apple terminates each tile with its secondary element
+            against the bottom edge, which is what stops the eye reading the
+            space as an unfinished band.
+          */}
+          <div className="flex flex-1 flex-col items-center justify-center py-10 text-center sm:py-16">
           {/*
             Mark above the title, owner instruction 2026-10-18. The h1 is
             already the wordmark, so this puts the symbol and the name in that
@@ -164,6 +182,7 @@ export default function Home() {
               See what we bring
             </a>
           </div>
+          </div>
 
           {/*
             2 of 5: the identity words as a horizontal rule-separated strip,
@@ -171,10 +190,14 @@ export default function Home() {
             than becoming a section of their own, which is why the page has
             three real sections instead of four lookalike ones (C-3).
 
+            Anchored to the bottom edge of the tile. The margin is small
+            because the space above it is now structural: flex puts it there,
+            not a fixed gap.
+
             Three responsive states, not two: one column, then two when the
             words start wrapping badly, then four.
           */}
-          <div className="mt-10 w-full border-t border-[var(--border-subtle)] pt-6 text-left sm:mt-20 sm:pt-10">
+          <div className="mt-10 w-full shrink-0 border-t border-[var(--border-subtle)] pb-10 pt-6 text-left sm:mt-12 sm:pb-16 sm:pt-10">
             <h2 className="text-caption uppercase tracking-[0.18em] text-text-accent">
               What we judge the work against
             </h2>

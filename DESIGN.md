@@ -318,12 +318,22 @@ subtraction is the header, which is a normal-flow sibling: a bare `100svh`
 would push the lockup below the fold by exactly the header height. `svh`
 rather than `vh` so a retracting mobile URL bar cannot cut the hero short.
 
-Measured, hero as a share of viewport: 91% at 390x844, 92% at 768x1024, 91% at
-1440x900, 93% at 1440x1200. The exception is 375x667, the shortest common
-phone, where it reaches 111% because the content needs more room than one short
-screen holds and min-height cannot shrink content. The cost there is the
-identity strip, which lands 111px below the fold. The primary lockup is
-untouched: mark, name, role, and both CTAs all finish at 372 of 667.
+**The tile is two groups, not one centred column.** The lockup takes the
+remaining height and centres itself in it; the identity strip is a sibling,
+pushed to the tile's bottom edge. Centring everything in one column was the
+earlier arrangement and it silently defeated the height: the hero measured 91%
+of the viewport and still looked unchanged, because 135 to 243px of dead space
+sat between the strip and the bottom of the screen and the eye read that band
+as unfinished. Apple terminates each tile with its secondary element against
+the bottom edge. With the strip anchored, dead space below it is a constant
+63px at every desktop width, which is only the strip's own bottom padding.
+
+Measured, hero as a share of viewport: 91% at 1440x900, 91% at 1512x982, 92% at
+1920x1080, 92% at 768x1024, 93% at 390x844. The exception is 375x667, the
+shortest common phone, where it reaches 117% because the content needs more
+room than one short screen holds and min-height cannot shrink content. The
+cost there is the identity strip, which lands below the fold. The primary
+lockup is untouched: mark, name, role, and both CTAs finish well above it.
 
 **There is no strikethrough.** An earlier revision used a struck article as a
 device. It was dropped because that device depends on a word that can be
