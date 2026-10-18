@@ -1,7 +1,7 @@
 # Graph Report - ordo-house  (2026-10-18)
 
 ## Corpus Check
-- 13 files · ~7,003 words
+- 13 files · ~7,171 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 2, .mdc 1, .lock 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `19f26059`
+- Built from commit: `dd7b4783`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

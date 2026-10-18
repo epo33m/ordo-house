@@ -39,14 +39,28 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
 ### One deliberate peak
 
 The hero is **ENERGY 3 inside an ENERGY 2 system**: a hero-scale headline at
-weight 750 and 0.95 leading, with a struck word as the typographic device.
-Nothing else on the site is allowed to reach that intensity. That contrast is
-the point. Every other section stays at ENERGY 2 or below, and the peak is
-recorded here so it reads as a decision rather than as output drifting past its
-own dial.
+weight 750 and 0.95 leading. Nothing else on the site is allowed to reach that
+intensity. That contrast is the point. Every other section stays at ENERGY 2 or
+below, and the peak is recorded here so it reads as a decision rather than as
+output drifting past its own dial.
 
 The peak is expressed through type and space only. No colour, glow, gradient,
 or animation is added to achieve it, which keeps it inside R-01 and R-19.
+
+**Hero layout: centred, single column.** Owner direction, 2026-10-18. Eyebrow,
+headline, one supporting sentence, two actions, all on the centre axis. This
+replaced an earlier two-column arrangement with the wordmark on the left, which
+was the more editorial choice and sat better with RHYTHM 2.
+
+The reason for the change: one focal point becomes unambiguous, scanning order
+is conventional rather than something to discover, and the hero reads identically
+at every width instead of needing a breakpoint to decide where the brand sits.
+
+Recorded honestly: a centred hero is the most common landing pattern on the web,
+so it is closer to convention than to characterisation. What keeps it from being
+slop is that it is stated rather than defaulted, the supporting sentence is a
+real claim from section 1, and no section below it repeats the centred
+composition. RHYTHM 2 is honoured by the sections, not by the hero.
 
 **Reading as:** `<page kind>` for `<audience>`, in a warm editorial language,
 dial ENERGY 2 / RHYTHM 2 / MOTION 1.

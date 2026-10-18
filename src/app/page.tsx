@@ -55,7 +55,10 @@ export default function Home() {
   return (
     <>
       <header className="border-b border-[var(--border-subtle)]">
-        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-end py-5">
+        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-between py-5">
+          {/* R-23: no logo asset exists, so this is the product name set in the
+              display face, not an invented mark. */}
+          <span className="font-display text-lg font-bold tracking-tight">ORDO</span>
           <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
@@ -63,49 +66,48 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/* Hero. One focal point, recorded as the ENERGY 3 peak in DESIGN.md. */}
-        <section className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] min-h-[78svh] items-center py-16 md:py-24">
-          <div className="grid w-full grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-5 lg:col-span-6">
-              {/* R-23: no logo asset exists, so this is the product name set in
-                  the display face, not an invented mark. */}
-              <span className="block font-display text-4xl font-bold uppercase leading-[0.9] tracking-tight md:text-5xl lg:text-6xl">
-                ORDO
-              </span>
-              <span className="mt-4 block max-w-[24ch] text-caption uppercase tracking-[0.18em] text-text-accent">
-                Strategy, design, technology
-              </span>
-            </div>
+        {/*
+          Centred single-column hero. Owner direction, 2026-10-18. One
+          unambiguous focal point, conventional scanning order, and it reads
+          the same at every width instead of needing a breakpoint to decide
+          where the brand sits. Recorded as the ENERGY 3 peak in DESIGN.md.
+        */}
+        <section className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] min-h-[78svh] flex-col items-center justify-center py-16 text-center md:py-24">
+          <p className="text-caption uppercase tracking-[0.18em] text-text-accent">
+            Strategy, design, technology
+          </p>
 
-            <div className="md:col-span-7 lg:col-span-6">
-              {/*
-                No strikethrough here. The device depended on a removable word,
-                and this headline has none: striking any single word breaks the
-                sentence. Forcing it would be decoration, not meaning.
-              */}
-              <h1 className="text-hero font-[750] leading-[0.95] tracking-display">
-                {HERO_LINES.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h1>
+          {/*
+            No strikethrough here. The device depended on a removable word, and
+            this headline has none: striking any single word breaks the
+            sentence. Forcing it would be decoration, not meaning.
+          */}
+          <h1 className="mt-8 text-hero font-[750] leading-[0.95] tracking-display text-balance">
+            {HERO_LINES.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </h1>
 
-              <div className="mt-12 flex flex-wrap items-center gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
-                >
-                  Start a conversation
-                </a>
-                <a
-                  href="#capabilities"
-                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
-                >
-                  See how the work is structured
-                </a>
-              </div>
-            </div>
+          <p className="mt-8 max-w-[54ch] text-body-lg text-text-muted text-pretty">
+            ORDO combines strategy, design, and technology to turn ideas into
+            considered digital systems.
+          </p>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#contact"
+              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
+            >
+              Start a conversation
+            </a>
+            <a
+              href="#capabilities"
+              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
+            >
+              See how the work is structured
+            </a>
           </div>
         </section>
 
