@@ -347,13 +347,25 @@ specification of 2026-10-18 asks for. It is padding rather than a transform, so
 it needs no compositing and no subpixel rounding to argue about.
 
 **The three gaps in the lockup are owner-set, not derived.** Mark to name,
-28px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
-from a flat 32px. Subhead to the action, a flat 40px. The pattern is
-deliberate: the two gaps inside the identity block bind it into one unit, and
-the larger one is what separates that unit from the actions. Do not flatten
-these to a single value, and do not restore the old 32px under the name, the
-reason being that the subhead reads as part of the wordmark lockup rather
-than as a separate paragraph.
+24px rising to 28px at sm, tightened from 28 and 32. Name to subhead, 16px
+rising to 20px at sm, down from a flat 32px. Subhead to the action, 36px,
+down from 40px. The pattern is deliberate: the two gaps inside the identity
+block bind it into one unit, and the larger one is what separates that unit
+from the actions. Do not flatten these to a single value, and do not restore
+the old 32px under the name, the reason being that the subhead reads as part
+of the wordmark lockup rather than as a separate paragraph.
+
+The 2026-10-18 tightening did not produce a descending scale across the three,
+which the first two values would suggest: 24, 16, 36. Mark to name is the
+larger of the two gaps inside the lockup, so the mark is bound to the name
+more loosely than the name is to its own subhead. That ordering is recorded
+rather than justified, because the specification settles the 24 to 28px
+mark-to-name figure but says nothing about which relationship should read as
+tightest.
+
+**The optical offset was not touched by the 2026-10-18 refinement.** That
+specification explicitly asked to keep the current vertical alignment and
+avoid shifts, so the 20 to 24px lift stays as it was.
 
 **Hero height is one viewport, following Apple's tile model.** `apple/DESIGN.md`
 records that each Apple tile occupies roughly one viewport. The hero is

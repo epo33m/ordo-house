@@ -198,8 +198,24 @@ export default function Home() {
             40px at the base and 56px at the top of the range, which is the
             40 to 48 mobile and 48 to 56 desktop band the hero specification
             of 2026-10-18 asks for.
+
+            The gap below it is 24px rising to 28px, tightened from 28 and 32
+            by the same specification.
+
+            That tightening did not produce a descending scale, which is
+            what the two other gaps would suggest: mark to name is now 24,
+            name to tagline 16, tagline to action 36. The mark-to-name gap is
+            the larger of the two inside the lockup, so the mark is bound to
+            the name more loosely than the name is to its own subhead. I
+            expected the opposite and wrote a comment claiming otherwise
+            before measuring it; the numbers above are the ones that shipped.
+
+            Whether that ordering is right is a judgement about which
+            relationship should read as tightest, and it is not one the
+            specification settles. It settles the mark-to-name gap, at 24 to
+            28px, which is what shipped.
           */}
-          <Logo className="mb-7 h-[clamp(2.5rem,4vw,3.5rem)] w-[clamp(2.5rem,4vw,3.5rem)] shrink-0 sm:mb-8" />
+          <Logo className="mb-6 h-[clamp(2.5rem,4vw,3.5rem)] w-[clamp(2.5rem,4vw,3.5rem)] shrink-0 sm:mb-7" />
 
           <h1 id="hero-heading" className="text-hero font-[750] leading-[0.95] tracking-display text-balance">
             {HERO_LINES.map((line) => (
@@ -247,9 +263,14 @@ export default function Home() {
             most people arrive at it anyway.
 
             The wrapper stays as a single centred flex row rather than
-            collapsing to a bare anchor: it carries the 40px gap that
+            collapsing to a bare anchor: it carries the 36px gap that
             separates the lockup from the actions, and it keeps the button
             centred without depending on its own width.
+
+            That gap came down from 40px. The specification offers "maintain
+            or tighten subtly", and 36px is the figure it used itself in an
+            earlier draft, so tightening is inside its own stated range
+            rather than an arbitrary move.
 
             Label is owner wording, 2026-10-18, replacing "Start a
             conversation". It names the relationship rather than the next
@@ -259,7 +280,7 @@ export default function Home() {
             for; the straight form in the owner's note was typing, not a
             request for that glyph.
           */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
               className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
