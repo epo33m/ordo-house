@@ -302,6 +302,15 @@ statement, "ORDO combines strategy, design, and technology to turn ideas into
 considered digital systems", was the subhead until 2026-10-18 and remains the
 substance the rest of the page expands on.
 
+**The three gaps in the lockup are owner-set, not derived.** Mark to name,
+24px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
+from a flat 32px. Subhead to the CTA row, a flat 40px. The pattern is
+deliberate: the two gaps inside the identity block bind it into one unit, and
+the larger one is what separates that unit from the actions. Do not flatten
+these to a single value, and do not restore the old 32px under the name, the
+reason being that the subhead reads as part of the wordmark lockup rather
+than as a separate paragraph.
+
 **There is no strikethrough.** An earlier revision used a struck article as a
 device. It was dropped because that device depends on a word that can be
 removed without breaking the sentence, and this headline has none. Striking

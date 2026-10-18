@@ -119,7 +119,13 @@ export default function Home() {
             ))}
           </h1>
 
-          <p className="mt-8 max-w-[54ch] text-body-lg text-text-muted text-pretty">
+          {/*
+            The subhead is the same lockup as the name, so it sits close under
+            it: 16px on a phone, 20px from sm. Owner instruction 2026-10-18,
+            down from a flat 32px. The CTA row keeps 40px below this, which is
+            what separates the identity block from the actions.
+          */}
+          <p className="mt-4 max-w-[54ch] text-body-lg text-text-muted text-pretty sm:mt-5">
             Digital Agency
           </p>
 
