@@ -295,9 +295,10 @@ piece of metadata into a badge (R-09).
 
 ### Hero device
 
-The hero headline is set as short lines at hero scale, tight leading, and
-weight 750: **Create and / Build what / you need**, owner wording from
-2026-10-18.
+The hero headline is set at hero scale, tight leading, and weight 750:
+**Ordo / House**, owner wording from 2026-10-18. It is the brand name, so the
+subhead carries the proposition on its own: "ORDO combines strategy, design,
+and technology to turn ideas into considered digital systems."
 
 **There is no strikethrough.** An earlier revision used a struck article as a
 device. It was dropped because that device depends on a word that can be
