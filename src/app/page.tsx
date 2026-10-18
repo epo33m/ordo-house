@@ -151,13 +151,28 @@ export default function Home() {
           </h1>
 
           {/*
-            The subhead is the same lockup as the name, so it sits close under
-            it: 16px on a phone, 20px from sm. Owner instruction 2026-10-18,
-            down from a flat 32px. The CTA row keeps 40px below this, which is
-            what separates the identity block from the actions.
+            Owner wording, 2026-10-18. It replaces "Digital Agency", which
+            named a category; this states the position instead. Two sentences
+            rather than one, so the period is doing the break that an em dash
+            is not allowed to do (R-02).
+
+            The gap above is unchanged at 16px, 20px from sm. The earlier
+            reason for it, that the subhead reads as part of the wordmark
+            lockup, applied to a two-word label. It holds for a full sentence
+            too: the subhead is still the same voice as the name, one step
+            down in size and colour rather than a separate paragraph.
+
+            The two sentences are forced onto two lines at every width rather
+            than left to wrap. Left to wrap, a 375px phone broke it as
+            "Designed with intent. Built" / "with purpose.", orphaning a word
+            and cutting a clause in half; text-pretty did not prevent it. One
+            sentence per line is deliberate, reads as a statement rather than a
+            wrapped paragraph, and costs one extra line of height on the
+            shortest phone, which the hero still has room for.
           */}
-          <p className="mt-4 max-w-[54ch] text-body-lg text-text-muted text-pretty sm:mt-5">
-            Digital Agency
+          <p className="mt-4 max-w-[54ch] text-body-lg text-text-muted sm:mt-5">
+            <span className="block">Designed with intent.</span>
+            <span className="block">Built with purpose.</span>
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

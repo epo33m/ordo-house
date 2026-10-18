@@ -297,10 +297,25 @@ piece of metadata into a badge (R-09).
 
 The hero headline is set at hero scale, tight leading, and weight 750:
 **Ordo House** on a single line, owner wording from 2026-10-18. The mark sits
-above it. The subhead is **Digital Agency**, also owner wording. The fuller
+above it. The subhead is **Designed with intent. Built with purpose.**, owner
+wording from the same day. It replaced **Digital Agency**, which named a
+category rather than taking a position, so the line under the name now says
+what the work stands for instead of what the company is. The earlier fuller
 statement, "ORDO combines strategy, design, and technology to turn ideas into
 considered digital systems", was the subhead until 2026-10-18 and remains the
 substance the rest of the page expands on.
+
+Two sentences, not one, so the period carries the break. That is also why the
+line has no em dash: R-02 forbids the character outright, and a two-clause
+tagline is exactly the case where an em dash would normally be tempting.
+
+**The subhead is forced onto two lines at every width.** Left to wrap, a 375px
+phone broke the line as "Designed with intent. Built" / "with purpose.",
+orphaning a word and cutting a clause in half, and `text-pretty` did not
+prevent it. One sentence per line is deliberate at all sizes: it reads as a
+statement rather than a wrapped paragraph, and it costs one extra line of
+height on the shortest phone, where the hero still has room for it at 93% of
+the viewport.
 
 **The three gaps in the lockup are owner-set, not derived.** Mark to name,
 24px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
