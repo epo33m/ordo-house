@@ -113,8 +113,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-8 max-w-[54ch] text-body-lg text-text-muted text-pretty">
-            ORDO combines strategy, design, and technology to turn ideas into
-            considered digital systems.
+            Digital Agency
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
