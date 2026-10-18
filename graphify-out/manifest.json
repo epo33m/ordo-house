@@ -18,10 +18,10 @@
     "semantic_hash": "b1f6bb4129739fd7ec8529de1ccf7216"
   },
   ".opencode/opencode.json": {
-    "mtime": 1792327173.8107455,
-    "seen": 1792327212.3790379,
-    "ast_hash": "abcc8b9dcd80bca5f9dde6d9f0c3ae79",
-    "semantic_hash": "abcc8b9dcd80bca5f9dde6d9f0c3ae79"
+    "mtime": 1792327569.0158021,
+    "seen": 1792327576.274009,
+    "ast_hash": "f87c7d3536952f79b331065a55bcec9e",
+    "semantic_hash": ""
   },
   ".opencode/plugins/graphify.js": {
     "mtime": 1792327173.852834,

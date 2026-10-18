@@ -3,8 +3,9 @@
   "1": "package.json",
   "2": "devDependencies",
   "3": "graphify.js",
-  "4": "types",
-  "5": "lib",
-  "6": "index.ts",
-  "7": "AGENTS.md"
+  "4": "AGENTS.md",
+  "5": "types",
+  "6": "lib",
+  "7": "index.ts",
+  "8": "graphify"
 }

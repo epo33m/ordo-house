@@ -9,6 +9,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
+      "community_name": "graphify.js",
       "file_type": "code",
       "norm_label": "graphifyplugin()",
       "source_file": ".opencode/plugins/graphify.js",
@@ -426,6 +427,7 @@
       "label": "graphify.js",
       "_origin": "ast",
       "community": 3,
+      "community_name": "graphify.js",
       "file_type": "code",
       "norm_label": "graphify.js",
       "source_file": ".opencode/plugins/graphify.js",
@@ -436,6 +438,7 @@
       "label": "IMPORTANT: keep the reminder string free of backticks and $(...) constructs.",
       "_origin": "ast",
       "community": 3,
+      "community_name": "graphify.js",
       "file_type": "rationale",
       "norm_label": "important: keep the reminder string free of backticks and $(...) constructs.",
       "source_file": ".opencode/plugins/graphify.js",
@@ -519,9 +522,120 @@
       "norm_label": "index.ts",
       "source_file": "index.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "opencode_opencode",
+      "label": "opencode.json",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "opencode.json",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "opencode_opencode_graphify_enabled",
+      "label": "enabled",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "enabled",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "opencode_opencode_graphify_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "opencode_opencode_graphify_url",
+      "label": "url",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "url",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "opencode_opencode_mcp",
+      "label": "mcp",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "mcp",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "opencode_opencode_mcp_graphify",
+      "label": "graphify",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "graphify",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L7"
+    },
+    {
+      "id": "opencode_opencode_plugin",
+      "label": "plugin",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "plugin",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "opencode_opencode_schema",
+      "label": "$schema",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "code",
+      "norm_label": "$schema",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "ref_opencode_plugins_graphify_js",
+      "label": ".opencode/plugins/graphify.js",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "graphify",
+      "file_type": "concept",
+      "norm_label": ".opencode/plugins/graphify.js",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L3"
     }
   ],
   "links": [
+    {
+      "source": "opencode_opencode_plugin",
+      "target": "ref_opencode_plugins_graphify_js",
+      "relation": "extends",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
     {
       "source": "tsconfig_compileroptions_lib",
       "target": "ref_esnext",
@@ -591,6 +705,83 @@
       "confidence_score": 1.0,
       "source_file": "AGENTS.md",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode",
+      "target": "opencode_opencode_schema",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode",
+      "target": "opencode_opencode_plugin",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode",
+      "target": "opencode_opencode_mcp",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode_mcp",
+      "target": "opencode_opencode_mcp_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode_mcp_graphify",
+      "target": "opencode_opencode_graphify_enabled",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode_mcp_graphify",
+      "target": "opencode_opencode_graphify_type",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_opencode_mcp_graphify",
+      "target": "opencode_opencode_graphify_url",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/opencode.json",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -991,5 +1182,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bf7e47c746bd6056e44a5cddfea1a08afa0ee2d7"
+  "built_at_commit": "3e5be5def67f3ed083cf53c169f647af120a6244"
 }
