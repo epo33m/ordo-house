@@ -389,12 +389,17 @@ That file is **reference, not direction**; see AGENTS.md.
 
 | Adopted | Value | Was |
 |---|---|---|
-| Hero scale | 28 / 34 / 40 / 56px | `clamp(2.5rem, 7vw, 5.5rem)` topping at 88px |
-| Hero weight, leading | 600 / 1.07 | 750 / 0.95 |
 | Body size and line | 17px / 1.47 (25px line) | 16px / 1.65 |
 | Section padding | 48 / 64 / **80px** | 48 / 64 / 96px |
 | Text container | **980px** for prose | 1440px only |
 | Breakpoints | 480 / 640 / 833 / **1068** / 1440 | 640 / 1024 |
+
+**Tried and reverted:** Apple's hero-display curve of 28 / 34 / 40 / 56px with
+weight 600 and leading 1.07. Adopted on 2026-10-18, put back the same day. At
+56px the name read too small sitting under the mark in the hero lockup. The
+hero is back to `clamp(2.5rem, 7vw, 5.5rem)` topping at 88px, weight 700,
+leading 1, tracking 0.02em, which is what it was before the import. Everything
+else Apple contributed was kept.
 
 Apple's spacing is an 8px base, which this system already used. Its
 whitespace rule, at least 64px of air above a headline and 48 to 64px below,
@@ -422,10 +427,12 @@ ORDO: swap the logo and it must not read as apple.com. It does not, because the
 palette, type, and mark are ORDO's. This is recorded so a later pass does not
 drift from borrowing structure into copying identity.
 
-**Hero tracking, deliberately unresolved.** Apple pairs its 56px hero with
--0.28px tracking. ORDO keeps a positive value because the expanded look was an
-owner instruction, halved from 0.02em to 0.01em since the hero is now half the
-size it was when that value was set.
+**Hero tracking, deliberately unresolved.** Apple pairs its type with -0.28px
+tracking. ORDO keeps a positive value because the expanded look was an owner
+instruction, at 0.02em. That value was briefly halved to 0.01em while the hero
+was on Apple's smaller 56px scale, and returned to 0.02em when the size came
+back. The owner keeps positive over Apple's negative, so the expanded look
+stands.
 
 ### Page structure
 

@@ -109,7 +109,7 @@ export default function Home() {
             This is the brand mark, not an eyebrow label: it is not a category
             the headline already says, so R-09 does not apply.
           */}
-          <Logo className="mb-10 h-16 w-16 shrink-0 sm:mb-12 sm:h-20 sm:w-20" />
+          <Logo className="mb-6 h-16 w-16 shrink-0 sm:mb-8 sm:h-20 sm:w-20" />
 
           <h1 id="hero-heading" className="text-hero font-[750] leading-[0.95] tracking-display text-balance">
             {HERO_LINES.map((line) => (

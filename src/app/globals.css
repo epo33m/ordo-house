@@ -1,4 +1,14 @@
-@import "tailwindcss";
+/*
+ * source(none) turns off Tailwind's automatic content detection; the
+ * @source rule below names the one directory that should feed the build.
+ *
+ * Without this, Tailwind v4 scans the whole project, and prose in DESIGN.md
+ * counts as a class name: a sentence mentioning `py-20 md:py-28` was emitting
+ * a live utility in the stylesheet. A direction document is not a build input,
+ * and a design note should never be able to change the CSS.
+ */
+@import "tailwindcss" source(none);
+@source "../**/*.{ts,tsx}";
 
 /*
  * ORDO design tokens. Direction lives in DESIGN.md; this file is the
@@ -175,12 +185,13 @@
   --text-h1: clamp(2.25rem, 5vw, 4rem);
   --text-h1--line-height: 1.1;
   /*
-   * Hero follows Apple's hero-display curve: 56px desktop, 40px at 1068,
-   * 34px at 640, 28px at 419. The staircase is expressed as a clamp so it
-   * scales continuously between those points rather than jumping.
+   * Hero restored to its pre-Apple size, owner instruction 2026-10-18.
+   * Apple's 56px hero-display curve was tried and reverted: the name read too
+   * small in the lockup with the mark above it. Apple's spacing, container,
+   * and breakpoint work are kept; only the type scale came back.
    */
-  --text-hero: clamp(1.75rem, 4.6vw, 3.5rem);
-  --text-hero--line-height: 1.07;
+  --text-hero: clamp(2.5rem, 7vw, 5.5rem);
+  --text-hero--line-height: 1;
 
   --radius-small: 8px;
   --radius-button: 12px;
@@ -192,13 +203,12 @@
    * Expanded width and a licensed one cannot be served on the web, so the
    * expanded feel comes from letterspacing instead.
    *
-   * Apple pairs its 56px hero with -0.28px tracking. ORDO keeps a positive
-   * value instead, because the expanded look was an owner instruction, but it
-   * is halved: the hero is now half the size it was when 0.02em was set, and
-   * the same ratio at 56px would read heavy. Set it negative if the owner
-   * decides Apple's exact pairing wins.
+   * Apple's hero pairs its type with -0.28px tracking, and this value was
+   * briefly halved to 0.01em to suit Apple's smaller hero. It is back to
+   * 0.02em with the hero size restored. The owner keeps a positive value over
+   * Apple's negative one, so the expanded look survives.
    */
-  --tracking-display: 0.01em;
+  --tracking-display: 0.02em;
   --tracking-heading: 0.012em;
   --tracking-tight: 0.005em;
 
@@ -235,13 +245,8 @@
     letter-spacing: var(--tracking-tight);
   }
 
-  /*
- * Apple pairs its display sizes with weight 600 and a line-height near 1.07,
- * which is calmer than the 750 this system started on. Adopted so the hero
- * scale and its weight agree with each other rather than fighting.
- */
   h1 {
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: var(--tracking-display);
   }
 
