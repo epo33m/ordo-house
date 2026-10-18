@@ -1,0 +1,19 @@
+{
+  "name": "ordo-house",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "packageManager": "bun@1.4.3",
+  "engines": {
+    "bun": ">=1.4.3"
+  },
+  "scripts": {
+    "start": "bun run index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "bun": "1.4.3",
+    "typescript": "7.0.2"
+  }
+}
