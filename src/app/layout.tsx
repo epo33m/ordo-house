@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeSync } from "@/components/theme-toggle";
 import "./globals.css";
+
+// Variable weight, latin subset, self-hosted by next/font at build time. The
+// generated fallback metrics keep the first paint from shifting, which is why
+// this is preferred over a <link> to a font CDN.
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "ORDO",
@@ -16,7 +27,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html lang="en" className={`${jakarta.variable} h-full`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-canvas text-text font-body">
         {children}
         {/*

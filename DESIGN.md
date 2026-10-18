@@ -111,29 +111,31 @@ text and negative space, 10% Tobacco family for actions and highlights.
 
 | Role | Typeface | Weight | Reason |
 |---|---|---|---|
-| Display | Helvetica Neue / Helvetica | 700 | Owner direction, 2026-10-18: the system uses Helvetica throughout. A neutral, editorial grotesque that lets the khaki accent carry the identity instead of the type. |
-| Heading | Helvetica Neue / Helvetica | 600 | Same face, quieter weight. |
-| Body | Helvetica Neue / Helvetica | 400 | Same face, tuned for reading. |
-| Emphasis | Helvetica Neue / Helvetica | 500 / 600 | Labels and metadata. |
+| Display | Plus Jakarta Sans | 700 | Owner direction, 2026-10-18. A geometric grotesque with enough character to carry a warm editorial brand without shouting, and wide enough at display size that the expanded feel survives. |
+| Heading | Plus Jakarta Sans | 600 | Same face, quieter weight. |
+| Body | Plus Jakarta Sans | 400 | Same face, tuned for reading at 16px. |
+| Emphasis | Plus Jakarta Sans | 500 / 600 | Labels and metadata. |
 
 ### Direction override on record
 
-antislop R-06 names Space Grotesk and Inter as common AI-default picks. The
-owner replaced both with Helvetica. This is a deliberate identity choice, not a
-default, and the override is recorded here so the choice is never mistaken for
-an unexamined one later.
+antislop R-06 names Inter, Geist, and Space Grotesk as common AI-default picks,
+and Plus Jakarta Sans sits in the same category of widely-used geometric sans.
+The owner chose it anyway. This is a deliberate identity choice, not a default,
+and the override is recorded here so it is never mistaken for an unexamined one
+later.
 
 Two consequences, accepted:
 
-- **Display and body are now the same face.** Hierarchy comes from weight, size,
+- **Display and body are the same face.** Hierarchy comes from weight, size,
   and spacing rather than a contrast of typefaces. `--font-display` is kept as a
   role token so a distinct display face can be introduced later without touching
   every component.
-- **The face resolves per platform.** macOS and iOS get Helvetica Neue, older
-  systems get Helvetica, and Windows and Linux fall back to Arial or the system
-  sans. Rendering differs slightly by platform. Self-hosting a metrically
-  similar open alternative would remove that variance at the cost of departing
-  from the direction, so it was not done.
+- **The typeface is now self-hosted.** This reverses the earlier decision to use
+  a system stack with no webfont at all. The trade is worth it: a named system
+  face resolved differently per platform, so Windows and Linux visitors saw
+  Arial while macOS and iOS visitors saw Helvetica. One self-hosted file renders
+  identically everywhere, and next/font generates metric-compatible fallback
+  overrides so there is still no layout shift.
 
 ### Scale
 
@@ -170,7 +172,10 @@ asked, and the substitution is recorded here rather than left to be discovered.
   all while still passing lint and typecheck.
 - A licensed Helvetica Expanded cannot be served on the web without a Linotype
   web licence, so it cannot be self-hosted either.
-- What ships instead is letterspacing: `--tracking-display` 0.02em,
+- The typeface changed to Plus Jakarta Sans afterwards, which is wide enough at
+  display size that the expanded feel partly comes from the face itself rather
+  than only from letterspacing.
+- What ships for tracking is: `--tracking-display` 0.02em,
   `--tracking-heading` 0.012em, `--tracking-tight` 0.005em.
 
 **What this is and is not.** Tracking changes texture, not proportion. A real
@@ -298,8 +303,9 @@ the live Apple pages as authoritative over this summary.
 ## 9. Implementation
 
 Tokens live in `src/app/globals.css` as Tailwind v4 `@theme` variables.
-Type is a system stack, so `src/app/layout.tsx` loads no webfont. Both colour
-modes are implemented and verified; the toggle in
+Plus Jakarta Sans is self-hosted at build time by `next/font` in
+`src/app/layout.tsx`, with a metric-matched fallback so there is no layout
+shift. Both colour modes are implemented and verified; the toggle in
 `src/components/theme-toggle.tsx` switches them.
 
 Do not hardcode hex values in components. Read the token.

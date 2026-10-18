@@ -105,17 +105,15 @@
   --color-on-accent: var(--fill-on-accent);
 
   /*
-   * Helvetica is referenced by name, never embedded: it is a licensed
-   * typeface and next/font/google cannot serve it. Naming it in a stack uses
-   * the copy already on the reader's machine, which is also why there is no
-   * webfont request and no layout shift. Helvetica Neue is the macOS and iOS
-   * face, Helvetica covers older systems, Arial is the pragmatic fallback
-   * elsewhere.
+   * Plus Jakarta Sans is self-hosted at build time by next/font, so there is
+   * no third-party font request and no runtime CDN dependency. Arial is the
+   * pre-swap fallback while the file loads; the generated metric overrides
+   * keep the layout from shifting when it arrives.
    */
-  --font-display: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui,
-    sans-serif;
-  --font-body: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui,
-    sans-serif;
+  --font-display: var(--font-jakarta), "Helvetica Neue", Helvetica, Arial,
+    ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-jakarta), "Helvetica Neue", Helvetica, Arial,
+    ui-sans-serif, system-ui, sans-serif;
 
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
