@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792331915.5318742,
-    "seen": 1792331944.398082,
-    "ast_hash": "07315b4b645111acef46fb0017df57b0",
+    "mtime": 1792331957.1467197,
+    "seen": 1792331975.896279,
+    "ast_hash": "97ab5d87155af917a7b39534cb8e3382",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1792331939.784353,
-    "seen": 1792331944.3980858,
-    "ast_hash": "c28afb5ec569c6cbdc7048ecf58a8f70",
+    "mtime": 1792331972.7297213,
+    "seen": 1792331975.896283,
+    "ast_hash": "713054f78882c4693ee1df1894a0310e",
     "semantic_hash": ""
   },
   ".opencode/commands/duo.md": {

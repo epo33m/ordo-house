@@ -11,10 +11,10 @@ import { ThemeToggle } from "@/components/theme-toggle";
  */
 
 /**
- * Owner wording, 2026-10-18. The headline is now the brand name, so the
- * subhead carries the proposition on its own.
+ * Owner wording, 2026-10-18. One line, so it is a single entry rather than a
+ * stack of them. The subhead carries the proposition on its own.
  */
-const HERO_LINES = ["Ordo", "House"] as const;
+const HERO_LINES = ["Ordo House"] as const;
 
 /** Identity adjectives, DESIGN.md section 1. */
 const IDENTITY = ["Minimal", "Warm", "Precise", "Curious"] as const;
