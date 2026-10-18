@@ -1,3 +1,4 @@
+import { Logo } from "@/components/logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 /**
@@ -73,10 +74,16 @@ export default function Home() {
     <>
       <header className="border-b border-[var(--border-subtle)]">
         <div className={`mx-auto flex ${SECTION_W} items-center justify-between py-4 sm:py-5`}>
-          {/* R-23: no logo asset exists, so this is the product name set in the
-              display face, not an invented mark. Matches the hero headline. */}
-          <span className="font-display text-lg font-bold tracking-tight">
-            ORDO HOUSE
+          {/*
+            Real mark, supplied 2026-10-18. It inherits currentColor, so the
+            header, the inverted band, and the accent band all get the correct
+            variant without a second asset. See src/components/logo.tsx.
+          */}
+          <span className="flex items-center gap-2.5 text-text">
+            <Logo className="h-7 w-7 shrink-0" />
+            <span className="font-display text-lg font-bold tracking-tight">
+              ORDO HOUSE
+            </span>
           </span>
           <nav aria-label="Theme">
             <ThemeToggle />
@@ -257,7 +264,10 @@ export default function Home() {
         <div
           className={`mx-auto flex ${SECTION_W} flex-col gap-1 py-8 text-caption text-text-muted sm:flex-row sm:items-center sm:justify-between`}
         >
-          <span>ORDO HOUSE</span>
+          <span className="flex items-center gap-2.5">
+            <Logo className="h-5 w-5 shrink-0" />
+            ORDO HOUSE
+          </span>
           <a href={`mailto:${CONTACT_EMAIL}`} className="underline-offset-4 hover:underline">
             {CONTACT_EMAIL}
           </a>

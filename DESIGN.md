@@ -330,6 +330,39 @@ real content, so they stayed; the headings stopped announcing them.
 The footer no longer reads "Direction documented in DESIGN.md". That was
 internal tooling text sitting on a public page.
 
+### Logo
+
+The mark is a disc with an inner circle that pinches into a stem flaring to
+the disc edge. Owner asset, supplied 2026-10-18 as a logo board.
+
+Shipped as inline SVG in `src/components/logo.tsx`, reconstructed by measuring
+the supplied raster at 140px and fitting the geometry: disc `r=70` at
+(70,70), inner circle `r=23` at (70,67), stem half-width 9 at `y=92` flaring
+0.3875 per side. Reconstruction differs from the source by 2.2% of pixels.
+
+Two things recorded rather than assumed:
+
+- **Replace it with the real vector export when one exists.** This was fitted
+  from a raster presentation board, not taken from a source file.
+- **The mark is used alone; the wordmark stays live text.** The board's
+  wordmark reads ORDO in a squarish techno face that is not Plus Jakarta Sans,
+  and the brand is now Ordo House, so using the board's wordmark image would
+  both contradict the name and clash with the site typeface.
+
+The knockout is an SVG mask, not a second colour, so the cut is genuinely
+transparent and one component works on canvas, inverted band, and accent band.
+It inherits `currentColor`. Mask ids come from `useId` because the mark
+appears twice per page.
+
+| Surface | Ratio | 3:1 required for a graphic |
+|---|---|---|
+| Snow on Canvas | 15.94:1 | PASS |
+| Snow on Tobacco Strong | 4.96:1 | PASS |
+| Charcoal on Snow | 13.69:1 | PASS |
+| Charcoal on Canvas Light | 12.57:1 | PASS |
+
+This closes the R-23 open item carried since the design system was installed.
+
 ### Page structure
 
 One page, three real sections. The order follows how a visitor decides: what
