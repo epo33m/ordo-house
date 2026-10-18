@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792330027.7732928,
-    "seen": 1792330292.633756,
-    "ast_hash": "a9dc426110a3fd2bbe0de3b5b9728303",
+    "mtime": 1792331423.243251,
+    "seen": 1792331444.927799,
+    "ast_hash": "b88fa7fd8a473966a4cb763a5beb10e8",
     "semantic_hash": ""
   },
   "README.md": {
@@ -90,9 +90,9 @@
     "semantic_hash": ""
   },
   ".opencode/plugins/apple-hig.js": {
-    "mtime": 1792329545.6322677,
-    "seen": 1792329596.427983,
-    "ast_hash": "d3da839d6bdc01284bfccace891a9f2e",
+    "mtime": 1792331409.882689,
+    "seen": 1792331444.927791,
+    "ast_hash": "62fe4879bcfc233454aed4559fe218a3",
     "semantic_hash": ""
   },
   "src/components/theme-toggle.tsx": {
@@ -105,6 +105,12 @@
     "mtime": 1792331235.4058943,
     "seen": 1792331259.830766,
     "ast_hash": "2e098d73726469e1d75c05beba98ddc4",
+    "semantic_hash": ""
+  },
+  ".opencode/commands/duo.md": {
+    "mtime": 1792331388.5035336,
+    "seen": 1792331444.927798,
+    "ast_hash": "0661a2a51bd3eb5bfffd7309a568896e",
     "semantic_hash": ""
   }
 }

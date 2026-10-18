@@ -70,15 +70,22 @@ Contrast values in `DESIGN.md` are measured, not estimated. Re-run `python3 ~/.c
 
 ## Apple Human Interface Guidelines
 
-A local archive of Apple's HIG is **mandatory reference material** for design decisions in this project.
+HIG guidance is **mandatory reference material** for design decisions in this project. Two sources, one primary:
 
-- Archive: `/Users/voldys/Downloads/apple-hig-archive/output`
-- Index: `output/index.json`, human-readable: `output/index.md`, pages: `output/pages/<category>/<slug>.md`
+| | Source | Use it for |
+|---|---|---|
+| Primary | `apple-hig` skill at `.opencode/skills/apple-hig/` | Ordinary design guidance. 157 distilled references under `references/hig/`, routed via `routing-index.md`. Cheaper to load and more precise than the archive. |
+| Cross-check | Archive at `/Users/voldys/Downloads/apple-hig-archive/output` | When the skill may be stale. The skill is a 2026-09-12 Apple snapshot; the archive was crawled from the live site. |
+
+Load the skill with the skill tool. To find a page in the archive: `rg -i "term" output/index.json`, then read the record's `markdown_path`.
 
 Rules:
-- **Before** choosing layout, navigation, controls, feedback, typography, color, or platform behavior, and **before** writing any component, screen, or user-facing string, find the topic and read that page. Start from the index (`rg -i "term" output/index.json`), then read the record's `markdown_path`.
-- If the archive is silent on a decision, proceed with judgment and say so. Do not invent a HIG rule and do not paraphrase a page as if it were Apple's wording.
-- The archive is a best-effort snapshot; the linked Apple URL is authoritative. If the two disagree, prefer the live page and flag the drift.
+- **Before** choosing layout, navigation, controls, feedback, typography, color, or platform behavior, and **before** writing any component, screen, or user-facing string, consult one of these.
+- Most of the skill's 157 references cover Apple platforms (watchOS, tvOS, CarPlay, HealthKit) that do not apply to a web project. Reach for the web-relevant ones: layout, color, typography, dark-mode, motion, accessibility, inclusion, feedback, loading, writing, design-principles.
+- If both are silent on a decision, proceed with judgment and say so. Do not invent a HIG rule and do not paraphrase a page as if it were Apple's wording.
+- Where the skill and the archive disagree, say so. Prefer the live Apple URL over both.
 - Apple content is copyrighted. Quote briefly and link. Never copy a page wholesale into this project's source, docs, or marketing copy.
 
-The archive is kept outside this repository deliberately. antislop stops generic output but cannot supply direction (its own rule R-37); this is the direction, and it is reference material, not project code.
+The skill is installed in this project rather than globally because it is reference material tied to this design system, not a general-purpose tool. It is not committed: `.opencode/skills/` is ignored, so reinstall with the command in the commit history if it is lost.
+
+The archive is kept outside this repository. antislop stops generic output but cannot supply direction (its own rule R-37); this is the direction, and it is reference material, not project code.

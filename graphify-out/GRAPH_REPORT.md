@@ -1,17 +1,17 @@
 # Graph Report - ordo-house  (2026-10-18)
 
 ## Corpus Check
-- 13 files · ~7,171 words
+- 14 files · ~7,537 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 2, .mdc 1, .lock 1)
 
 ## Summary
-- 153 nodes · 159 edges · 12 communities
+- 154 nodes · 159 edges · 13 communities (12 shown, 1 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dd7b4783`
+- Built from commit: `3bd347ed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,7 +50,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 0 thin omitted)
+## Communities (13 total, 1 thin omitted)
 
 ### Community 0 - "compilerOptions"
 Cohesion: 0.09
@@ -102,13 +102,14 @@ Nodes (6): 2. Color, Known-failing pairs, do not use, Measured contrast, Non-tex
 
 ## Knowledge Gaps
 - **7 isolated node(s):** `react-dom`, `@tailwindcss/turbopack`, `@types/node`, `@types/react`, `@types/react-dom` (+2 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 107 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 108 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `theme-toggle.tsx` to `package.json`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `ThemeToggle()` (e.g. with `getServerSnapshot()` and `getSnapshot()`) actually correct?**
   _`ThemeToggle()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `react-dom`, `@tailwindcss/turbopack`, `@types/node` to the rest of the system?**

@@ -22,6 +22,20 @@ const ARCHIVE = "/Users/voldys/Downloads/apple-hig-archive/output";
 const INDEX = join(ARCHIVE, "index.json");
 const PAGES = join(ARCHIVE, "pages");
 
+/*
+ * A skill named `apple-hig` is installed at .opencode/skills/apple-hig/. It is
+ * a curated, source-reviewed snapshot (release 2026-09-27, Apple snapshot
+ * 2026-09-12) and it supersedes this archive for HIG questions: its references
+ * are distilled to about a third of Apple's wording while keeping exact values,
+ * so it is cheaper to load and more precise.
+ *
+ * Both are named apple-hig, which is ambiguous. The skill wins for design
+ * guidance. The archive is kept as the live cross-check: the skill is a
+ * September snapshot, the archive was crawled from the live site, and DESIGN.md
+ * still treats the live Apple URL as authoritative when the two disagree.
+ */
+const SKILL = ".opencode/skills/apple-hig";
+
 // The plugin id carries this file's location: a project and a directory above
 // it can each hold a copy, and OpenCode fails the second plugin with the same
 // id ("Duplicate plugin ID"), the same reason graphify.js hashes its location.
@@ -68,26 +82,28 @@ export default {
 
     const text = [
       "[apple-hig] Mandatory reference for design decisions in this project.",
-      `Local archive of Apple's Human Interface Guidelines: ${ARCHIVE}`,
-      `(${info.count} pages${info.generated ? `, retrieved ${info.generated}` : ""}).` +
-        (info.topics ? ` Categories: ${info.topics}.` : ""),
+      "",
+      "Primary source: the `apple-hig` skill in " + SKILL + ".",
+      "  Load it with the skill tool. It carries 157 distilled references under",
+      "  references/hig/ plus routing-index.md for finding the right one.",
+      "",
+      "Live cross-check: archive of Apple's own pages at " + ARCHIVE + ".",
+      `  (${info.count} pages${info.generated ? `, retrieved ${info.generated}` : ""})` +
+        (info.topics ? `. Categories: ${info.topics}.` : ""),
+      "  Use it when the skill may be out of date, since the skill is a",
+      "  September 2026 snapshot and the archive was crawled from the live site.",
+      info.hasIndex
+        ? '  Find a page with: rg -i "term" ' + INDEX
+        : "  index.json is not written yet; browse " + PAGES + " directly.",
       "",
       "Before you decide how something should look, feel, or behave - and before",
-      "you write any component, screen, or user-facing string - find the matching",
-      "topic and read that page:",
-      info.hasIndex
-        ? '  1. Grep the index for the topic: rg -i "term" ' + INDEX
-        : "  1. The crawl is incomplete, so index.json is not written yet. Browse",
-      ...(info.hasIndex ? [] : ["     the category folders under " + PAGES + " directly."]),
-      "  2. Read the page file listed in that record's markdown_path.",
+      "you write any component, screen, or user-facing string - consult one of",
+      "them. Applies to layout, navigation, controls, feedback, typography, color,",
+      "accessibility, and platform conventions.",
       "",
-      "Applies to layout, navigation, controls, feedback, typography, color,",
-      "accessibility, and platform conventions. When the archive and your",
-      "judgment disagree, say so rather than silently following either.",
-      "",
-      "The archive is a best-effort snapshot and the official URL is",
-      "authoritative. Apple content is copyrighted: quote briefly, never copy",
-      "a page wholesale into this project's source or docs.",
+      "Where they disagree, say so rather than silently following either, and",
+      "prefer the live Apple URL. Apple content is copyrighted: quote briefly,",
+      "never copy a page wholesale into this project's source or docs.",
     ].join("\n");
 
     await ctx.session.hook("context", (event) => {

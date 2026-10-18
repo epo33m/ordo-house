@@ -43,3 +43,6 @@ next-env.d.ts
 # graphify local AST cache (version-keyed, regenerable)
 graphify-out/cache/
 graphify-out/20*/
+
+# apple-hig skill: 3.8MB of Apple's content, reinstalled not committed
+.opencode/skills/
