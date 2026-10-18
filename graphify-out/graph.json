@@ -4,6 +4,17 @@
   "graph": {},
   "nodes": [
     {
+      "id": "opencode_plugins_graphify_graphifyplugin",
+      "label": "GraphifyPlugin()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "graphifyplugin()",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L12"
+    },
+    {
       "id": "tsconfig",
       "label": "tsconfig.json",
       "_origin": "ast",
@@ -290,6 +301,39 @@
       "source_location": "L5"
     },
     {
+      "id": "package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "package_scripts_start",
+      "label": "start",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "start",
+      "source_file": "package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "package_scripts_typecheck",
+      "label": "typecheck",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "typecheck",
+      "source_file": "package.json",
+      "source_location": "L12"
+    },
+    {
       "id": "package_type",
       "label": "type",
       "_origin": "ast",
@@ -378,43 +422,54 @@
       "source_location": "L17"
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
+      "id": "opencode_plugins_graphify",
+      "label": "graphify.js",
       "_origin": "ast",
       "community": 3,
-      "community_name": "scripts",
       "file_type": "code",
-      "norm_label": "scripts",
-      "source_file": "package.json",
-      "source_location": "L10"
+      "norm_label": "graphify.js",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L1"
     },
     {
-      "id": "package_scripts_start",
-      "label": "start",
+      "id": "opencode_plugins_graphify_rationale_4",
+      "label": "IMPORTANT: keep the reminder string free of backticks and $(...) constructs.",
       "_origin": "ast",
       "community": 3,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "start",
-      "source_file": "package.json",
-      "source_location": "L11"
+      "file_type": "rationale",
+      "norm_label": "important: keep the reminder string free of backticks and $(...) constructs.",
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L4"
     },
     {
-      "id": "package_scripts_typecheck",
-      "label": "typecheck",
+      "id": "agents",
+      "label": "AGENTS.md",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "scripts",
-      "file_type": "code",
-      "norm_label": "typecheck",
-      "source_file": "package.json",
-      "source_location": "L12"
+      "community": 4,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "agents.md",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "agents_graphify",
+      "label": "graphify",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "AGENTS.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "graphify",
+      "source_file": "AGENTS.md",
+      "source_location": "L1"
     },
     {
       "id": "tsconfig_compileroptions_types",
       "label": "types",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "types",
       "file_type": "code",
       "norm_label": "types",
@@ -425,7 +480,7 @@
       "id": "ref_bun",
       "label": "bun",
       "_origin": "ast",
-      "community": 4,
+      "community": 5,
       "community_name": "types",
       "file_type": "concept",
       "norm_label": "bun",
@@ -436,7 +491,7 @@
       "id": "tsconfig_compileroptions_lib",
       "label": "lib",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "lib",
       "file_type": "code",
       "norm_label": "lib",
@@ -447,7 +502,7 @@
       "id": "ref_esnext",
       "label": "ESNext",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "lib",
       "file_type": "concept",
       "norm_label": "esnext",
@@ -458,7 +513,7 @@
       "id": "index",
       "label": "index.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "index.ts",
       "file_type": "code",
       "norm_label": "index.ts",
@@ -525,6 +580,28 @@
       "context": "import",
       "source_file": "package.json",
       "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "agents",
+      "target": "agents_graphify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "opencode_plugins_graphify",
+      "target": "opencode_plugins_graphify_graphifyplugin",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -900,8 +977,19 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0
+    },
+    {
+      "source": "opencode_plugins_graphify_rationale_4",
+      "target": "opencode_plugins_graphify",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".opencode/plugins/graphify.js",
+      "source_location": "L4",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "360db285f5463c1f06201d4a95452215a590fb57"
+  "built_at_commit": "bf7e47c746bd6056e44a5cddfea1a08afa0ee2d7"
 }

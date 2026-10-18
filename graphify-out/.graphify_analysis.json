@@ -29,6 +29,9 @@
       "package_name",
       "package_packagemanager",
       "package_private",
+      "package_scripts",
+      "package_scripts_start",
+      "package_scripts_typecheck",
       "package_type"
     ],
     "2": [
@@ -41,30 +44,35 @@
       "typescript"
     ],
     "3": [
-      "package_scripts",
-      "package_scripts_start",
-      "package_scripts_typecheck"
+      "opencode_plugins_graphify",
+      "opencode_plugins_graphify_graphifyplugin",
+      "opencode_plugins_graphify_rationale_4"
     ],
     "4": [
+      "agents",
+      "agents_graphify"
+    ],
+    "5": [
       "ref_bun",
       "tsconfig_compileroptions_types"
     ],
-    "5": [
+    "6": [
       "ref_esnext",
       "tsconfig_compileroptions_lib"
     ],
-    "6": [
+    "7": [
       "index"
     ]
   },
   "cohesion": {
     "0": 0.10526315789473684,
-    "1": 0.25,
+    "1": 0.18181818181818182,
     "2": 0.2857142857142857,
     "3": 0.6666666666666666,
     "4": 1.0,
     "5": 1.0,
-    "6": 1.0
+    "6": 1.0,
+    "7": 1.0
   },
   "gods": [
     {
@@ -119,31 +127,8 @@
     }
   ],
   "surprises": [],
-  "questions": [
-    {
-      "type": "bridge_node",
-      "question": "Why does `compilerOptions` connect `compilerOptions` to `types`, `lib`?",
-      "why": "High betweenness centrality (0.279) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
-      "why": "High betweenness centrality (0.095) - this node is a cross-community bridge."
-    },
-    {
-      "type": "bridge_node",
-      "question": "Why does `scripts` connect `scripts` to `package.json`?",
-      "why": "High betweenness centrality (0.038) - this node is a cross-community bridge."
-    },
-    {
-      "type": "isolated_nodes",
-      "question": "What connects `allowImportingTsExtensions`, `allowJs`, `jsx` to the rest of the system?",
-      "why": "30 weakly-connected nodes found - possible documentation gaps or missing edges."
-    },
-    {
-      "type": "low_cohesion",
-      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
-    }
-  ]
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
 }

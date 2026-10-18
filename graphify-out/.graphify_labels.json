@@ -1,1 +1,10 @@
-{"0": "compilerOptions", "1": "package.json", "2": "devDependencies", "3": "scripts", "4": "types", "5": "lib", "6": "index.ts"}
+{
+  "0": "compilerOptions",
+  "1": "package.json",
+  "2": "devDependencies",
+  "3": "graphify.js",
+  "4": "types",
+  "5": "lib",
+  "6": "index.ts",
+  "7": "AGENTS.md"
+}

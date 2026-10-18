@@ -16,5 +16,29 @@
     "seen": 1792327165.149299,
     "ast_hash": "b1f6bb4129739fd7ec8529de1ccf7216",
     "semantic_hash": "b1f6bb4129739fd7ec8529de1ccf7216"
+  },
+  ".opencode/opencode.json": {
+    "mtime": 1792327173.8107455,
+    "seen": 1792327212.3790379,
+    "ast_hash": "abcc8b9dcd80bca5f9dde6d9f0c3ae79",
+    "semantic_hash": "abcc8b9dcd80bca5f9dde6d9f0c3ae79"
+  },
+  ".opencode/plugins/graphify.js": {
+    "mtime": 1792327173.852834,
+    "seen": 1792327212.37904,
+    "ast_hash": "3ea725724bc8ebe483c9f13d6aa1124f",
+    "semantic_hash": "3ea725724bc8ebe483c9f13d6aa1124f"
+  },
+  "AGENTS.md": {
+    "mtime": 1792327173.810467,
+    "seen": 1792327192.225263,
+    "ast_hash": "6a47d64fcc136324ca395065a707ef76",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1792326843.4618073,
+    "seen": 1792327192.225264,
+    "ast_hash": "00cd60eb98709d7450c657c31027dd31",
+    "semantic_hash": ""
   }
 }
