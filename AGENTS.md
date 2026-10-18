@@ -59,3 +59,18 @@ These skills are vendored from `miqdadbadjuber/anti-slop` (v3.2.21) into the glo
 - Verify the copy is still upstream: `~/.config/opencode/skills/antislop/VERSION`
 - Remove: delete the six folders under `~/.config/opencode/skills/`, plus `.opencode/plugins/antislop.js` and this block.
 - Do not install the same names into `.opencode/skills/` or `.agents/skills/` here: OpenCode reads both, and a duplicate name across locations has no defined winner.
+
+## Apple Human Interface Guidelines
+
+A local archive of Apple's HIG is **mandatory reference material** for design decisions in this project.
+
+- Archive: `/Users/voldys/Downloads/apple-hig-archive/output`
+- Index: `output/index.json`, human-readable: `output/index.md`, pages: `output/pages/<category>/<slug>.md`
+
+Rules:
+- **Before** choosing layout, navigation, controls, feedback, typography, color, or platform behavior, and **before** writing any component, screen, or user-facing string, find the topic and read that page. Start from the index (`rg -i "term" output/index.json`), then read the record's `markdown_path`.
+- If the archive is silent on a decision, proceed with judgment and say so. Do not invent a HIG rule and do not paraphrase a page as if it were Apple's wording.
+- The archive is a best-effort snapshot; the linked Apple URL is authoritative. If the two disagree, prefer the live page and flag the drift.
+- Apple content is copyrighted. Quote briefly and link. Never copy a page wholesale into this project's source, docs, or marketing copy.
+
+The archive is kept outside this repository deliberately. antislop stops generic output but cannot supply direction (its own rule R-37); this is the direction, and it is reference material, not project code.

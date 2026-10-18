@@ -1,17 +1,17 @@
 # Graph Report - ordo-house  (2026-10-18)
 
 ## Corpus Check
-- 10 files · ~2,382 words
+- 11 files · ~3,163 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 2, .mdc 1, .lock 1)
 
 ## Summary
-- 100 nodes · 96 edges · 10 communities
+- 107 nodes · 105 edges · 10 communities
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d87776d3`
+- Built from commit: `0b74071f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,8 +36,8 @@
 6. `environment` - 2 edges
 7. `directive()` - 2 edges
 8. `setup()` - 2 edges
-9. `eslint` - 2 edges
-10. `eslint-config-next` - 2 edges
+9. `summary()` - 2 edges
+10. `setup()` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -64,8 +64,8 @@ Cohesion: 0.33
 Nodes (6): scripts, build, dev, lint, start, typecheck
 
 ### Community 4 - "AGENTS.md"
-Cohesion: 0.33
-Nodes (5): antislop, graphify, Keeping antislop current, Stack, This is NOT the Next.js you know
+Cohesion: 0.29
+Nodes (6): antislop, Apple Human Interface Guidelines, graphify, Keeping antislop current, Stack, This is NOT the Next.js you know
 
 ### Community 5 - "README.md"
 Cohesion: 0.50
@@ -84,25 +84,25 @@ Cohesion: 0.22
 Nodes (8): PATH, command, enabled, environment, type, mcp, graphify, $schema
 
 ### Community 9 - "antislop.js"
-Cohesion: 0.22
-Nodes (6): ALL_SKILLS, directive(), installed, location, setup(), SKILL_DIR
+Cohesion: 0.15
+Nodes (11): ALL_SKILLS, directive(), installed, location, setup(), SKILL_DIR, INDEX, location (+3 more)
 
 ## Knowledge Gaps
 - **8 isolated node(s):** `react`, `react-dom`, `@tailwindcss/turbopack`, `@types/node`, `@types/react` (+3 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 77 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 79 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `layout.tsx` to `package.json`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
 - **What connects `react`, `react-dom`, `@tailwindcss/turbopack` to the rest of the system?**
   _8 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.063) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
 - **Why does `scripts` connect `scripts` to `package.json`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._

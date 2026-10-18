@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792329013.6004663,
-    "seen": 1792329026.89709,
-    "ast_hash": "7315cc56323fa70ee7c01c9f50162bec",
+    "mtime": 1792329486.412148,
+    "seen": 1792329596.427989,
+    "ast_hash": "8028a752da36afd47b040d3207c7f250",
     "semantic_hash": ""
   },
   "README.md": {
@@ -87,6 +87,12 @@
     "mtime": 1792329004.466582,
     "seen": 1792329026.897084,
     "ast_hash": "d8900608f0342bb845fc8fd5c4870be7",
+    "semantic_hash": ""
+  },
+  ".opencode/plugins/apple-hig.js": {
+    "mtime": 1792329545.6322677,
+    "seen": 1792329596.427983,
+    "ast_hash": "d3da839d6bdc01284bfccace891a9f2e",
     "semantic_hash": ""
   }
 }
