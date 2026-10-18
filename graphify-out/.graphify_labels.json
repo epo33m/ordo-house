@@ -2,10 +2,7 @@
   "0": "compilerOptions",
   "1": "package.json",
   "2": "devDependencies",
-  "3": "graphify.js",
   "4": "AGENTS.md",
-  "5": "types",
-  "6": "lib",
   "7": "index.ts",
   "8": "graphify"
 }
