@@ -138,6 +138,30 @@ export default function Home() {
             when the header was 76px base and 84px from sm. If the header ever
             goes back to padding-driven height, this needs both values again.
 
+            The hero specification of 2026-10-18 asks for a 64 to 72px header.
+            That is not applied here: it reverses the owner's explicit
+            instruction two days earlier to bring the header down to Apple's
+            44px, and an earlier document is not authority to undo a later
+            decision. Raised with the owner instead.
+
+            Centring here is optical, not geometric. Space above the mark and
+            space below the CTA measured identical at every width, which
+            reads as sitting slightly low, because the eye's centre of
+            attention sits above the geometric centre of a block. The larger bottom padding is
+            that offset. The offset equals the difference between the bottom
+            and top padding, not half of it, so it is 60px against 40px at
+            the base and 88px against 64px from sm, which puts the content 20
+            and 24px above true centre. My first attempt used 80 and 112 and
+            overshot to 40 and 48, because I had assumed the difference was
+            halved. It is padding rather than a transform, so it survives
+            with no compositing and no subpixel rounding to argue about.
+
+            Horizontal padding stays at 24px against the 32 to 48px the
+            specification asks for. The gutter is one shared value across
+            every section, so moving it moves the whole page rather than
+            this tile, and that is a page-wide decision rather than a hero
+            one.
+
             The lockup is centred in that height. It was previously a group
             inside a two-group tile, the other group being the identity strip,
             which has since been removed; with one group left the wrapper div
@@ -145,7 +169,7 @@ export default function Home() {
           */}
           <section
             aria-labelledby="hero-heading"
-            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-2.75rem)] flex-col items-center justify-center py-10 text-center sm:py-16`}
+            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-2.75rem)] flex-col items-center justify-center pt-10 pb-[3.75rem] text-center sm:pt-16 sm:pb-[5.5rem]`}
           >
           {/*
             Mark above the title, owner instruction 2026-10-18. The h1 is
@@ -155,8 +179,27 @@ export default function Home() {
 
             This is the brand mark, not an eyebrow label: it is not a category
             the headline already says, so R-09 does not apply.
+
+            Size is a clamp rather than two fixed steps, and the reason is
+            hierarchy, not taste. The mark was fixed at 64px, rising to 80px
+            at sm, while the name scales from 40px to 88px across the
+            breakpoints. Those two curves cross: measured at 768x1024 the
+            mark was 1.49x the height of the name, and at 375x667 it was
+            1.60x. On a phone the brand mark, not "Ordo House", was the
+            largest thing in the hero, which inverts the one thing the
+            hierarchy cannot give up.
+
+            Scaling the mark with the same viewport unit the name uses keeps
+            the ratio between 0.57 and 0.91 at every width measured, so the
+            name is always dominant. Two fixed steps cannot do this: any
+            pair of steps crosses somewhere in the 640 to 1024 band, which is
+            exactly where the old pair crossed.
+
+            40px at the base and 56px at the top of the range, which is the
+            40 to 48 mobile and 48 to 56 desktop band the hero specification
+            of 2026-10-18 asks for.
           */}
-          <Logo className="mb-6 h-16 w-16 shrink-0 sm:mb-8 sm:h-20 sm:w-20" />
+          <Logo className="mb-7 h-[clamp(2.5rem,4vw,3.5rem)] w-[clamp(2.5rem,4vw,3.5rem)] shrink-0 sm:mb-8" />
 
           <h1 id="hero-heading" className="text-hero font-[750] leading-[0.95] tracking-display text-balance">
             {HERO_LINES.map((line) => (

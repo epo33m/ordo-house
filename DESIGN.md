@@ -323,8 +323,31 @@ statement rather than a wrapped paragraph, and it costs one extra line of
 height on the shortest phone, where the hero still has room for it at 93% of
 the viewport.
 
+**The hero name is always larger than the hero mark, at every width.** The
+mark was fixed at 64px, rising to 80px at sm, while the name scales from 40px
+to 88px. Those two curves cross: measured at 768x1024 the mark was 1.49x the
+name's height, and at 375x667 it was 1.60x. On a phone the brand mark, not
+"Ordo House", was the largest thing in the hero, which inverts the one thing
+the hierarchy cannot give up.
+
+The mark is now `clamp(2.5rem, 4vw, 3.5rem)`, so it scales with the same
+viewport unit the name uses and the ratio stays between 0.57 and 0.91 across
+every width measured from 360 to 1920. Two fixed steps cannot achieve this:
+any pair of steps crosses somewhere in the 640 to 1024 band, which is exactly
+where the old pair crossed. The name's floor moved from 2.5rem to 2.75rem at
+the same time, because at 375px the old 40px name tied exactly with the 40px
+mark, and a tie is not dominance.
+
+**The hero is optically centred, not geometrically.** Space above the mark and
+space below the CTA measured identical at every width, which reads as sitting
+slightly low: the eye's centre of attention sits above the geometric centre of
+a block. The offset is the difference between the hero's bottom and top
+padding, 20px at the base and 24px from sm, which is the 16 to 24px the hero
+specification of 2026-10-18 asks for. It is padding rather than a transform, so
+it needs no compositing and no subpixel rounding to argue about.
+
 **The three gaps in the lockup are owner-set, not derived.** Mark to name,
-24px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
+28px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
 from a flat 32px. Subhead to the action, a flat 40px. The pattern is
 deliberate: the two gaps inside the identity block bind it into one unit, and
 the larger one is what separates that unit from the actions. Do not flatten
@@ -357,6 +380,14 @@ same way: its global nav describes quiet, unboxed links with a right-aligned
 icon cluster. The border existed because the control used to sit inside air.
 The 44px hit area is unchanged, and the focus ring is verified present in both
 themes at 2px solid with a 3px offset.
+
+The hero specification of 2026-10-18 asks for a 64 to 72px header and 32 to
+48px of horizontal padding. Neither is applied. The height would reverse the
+owner's explicit instruction two days earlier to bring the bar down to Apple's
+44px, and an older document is not authority to undo a newer decision. The
+padding is one shared gutter across every section, so changing it moves the
+whole page rather than this tile, which is a page-wide decision and not a hero
+one. Both are open for the owner to overrule.
 
 **The mark is 20px, not Apple's 14px.** This logo is a filled shape with more
 visual weight than a wordmark glyph, and 20px is also what the footer uses, so

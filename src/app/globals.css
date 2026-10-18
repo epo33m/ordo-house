@@ -189,8 +189,14 @@
    * Apple's 56px hero-display curve was tried and reverted: the name read too
    * small in the lockup with the mark above it. Apple's spacing, container,
    * and breakpoint work are kept; only the type scale came back.
+   *
+   * The floor moved from 2.5rem to 2.75rem on 2026-10-18, from the hero
+   * specification. At 375px the old 40px floor tied exactly with the 40px
+   * brand mark, so the name was not the dominant element on a phone, which is
+   * the one thing the hierarchy cannot give up. 44px is also the figure the
+   * specification asks for on mobile.
    */
-  --text-hero: clamp(2.5rem, 7vw, 5.5rem);
+  --text-hero: clamp(2.75rem, 7vw, 5.5rem);
   --text-hero--line-height: 1;
 
   --radius-small: 8px;
