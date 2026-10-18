@@ -1,17 +1,17 @@
 # Graph Report - ordo-house  (2026-10-18)
 
 ## Corpus Check
-- 18 files · ~17,549 words
+- 18 files · ~17,263 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 2, .mdc 1, .lock 1)
 
 ## Summary
-- 210 nodes · 217 edges · 18 communities (16 shown, 2 thin omitted)
+- 209 nodes · 216 edges · 18 communities (16 shown, 2 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d66f03e5`
+- Built from commit: `412e68a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -100,8 +100,8 @@ Cohesion: 0.15
 Nodes (11): ALL_SKILLS, directive(), installed, location, setup(), SKILL_DIR, INDEX, location (+3 more)
 
 ### Community 10 - "theme-toggle.tsx"
-Cohesion: 0.18
-Nodes (14): react, CAPABILITIES, HERO_LINES, Home(), IDENTITY, PRINCIPLES, Logo(), getServerSnapshot() (+6 more)
+Cohesion: 0.20
+Nodes (13): react, CAPABILITIES, HERO_LINES, Home(), PRINCIPLES, Logo(), getServerSnapshot(), getSnapshot() (+5 more)
 
 ### Community 13 - "7. Content"
 Cohesion: 0.25
@@ -125,14 +125,14 @@ Nodes (6): 6. Components, Badges, Buttons, Cards, Inputs, Navigation
 
 ## Knowledge Gaps
 - **7 isolated node(s):** `react-dom`, `@tailwindcss/turbopack`, `@types/node`, `@types/react`, `@types/react-dom` (+2 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 148 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 147 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `theme-toggle.tsx` to `package.json`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
 - **What connects `react-dom`, `@tailwindcss/turbopack`, `@types/node` to the rest of the system?**
   _7 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

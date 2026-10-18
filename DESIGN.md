@@ -318,22 +318,26 @@ subtraction is the header, which is a normal-flow sibling: a bare `100svh`
 would push the lockup below the fold by exactly the header height. `svh`
 rather than `vh` so a retracting mobile URL bar cannot cut the hero short.
 
-**The tile is two groups, not one centred column.** The lockup takes the
-remaining height and centres itself in it; the identity strip is a sibling,
-pushed to the tile's bottom edge. Centring everything in one column was the
-earlier arrangement and it silently defeated the height: the hero measured 91%
-of the viewport and still looked unchanged, because 135 to 243px of dead space
-sat between the strip and the bottom of the screen and the eye read that band
-as unfinished. Apple terminates each tile with its secondary element against
-the bottom edge. With the strip anchored, dead space below it is a constant
-63px at every desktop width, which is only the strip's own bottom padding.
+**The lockup is centred in that height.** There was a period when the tile was
+split into two groups, the lockup and an identity strip, with the strip pushed
+to the tile's bottom edge. The strip has since been removed by owner
+instruction, so the tile is one centred group again and the wrapper div and
+flex plumbing went with it.
 
-Measured, hero as a share of viewport: 91% at 1440x900, 91% at 1512x982, 92% at
-1920x1080, 92% at 768x1024, 93% at 390x844. The exception is 375x667, the
-shortest common phone, where it reaches 117% because the content needs more
-room than one short screen holds and min-height cannot shrink content. The
-cost there is the identity strip, which lands below the fold. The primary
-lockup is untouched: mark, name, role, and both CTAs finish well above it.
+That detour is worth recording, because the first attempt at a viewport-tall
+hero did not work and the reason was not the height. Centring everything in one
+column, with a strip in the middle, gave a hero that measured 91% of the
+viewport and still looked unchanged: 135 to 243px of dead space sat between
+the strip and the bottom of the screen, and the eye read that band as
+unfinished. Removing the strip fixed it for a different reason than expected,
+since there is now nothing left to float in the space.
+
+Measured, hero as a share of viewport: 91% at 1440x900, 92% at 1920x1080, 92%
+at 768x1024, 91% at 390x844, and 89% at 375x667. That last one is the shortest
+common phone and it is the case the strip used to break: with the strip present
+the hero ran to 117% of the viewport and pushed content below the fold, because
+min-height cannot shrink content. It now fits. Centring is exact: 244px above
+the mark and 244px below the last CTA at 1440x900.
 
 **There is no strikethrough.** An earlier revision used a struck article as a
 device. It was dropped because that device depends on a word that can be
@@ -353,13 +357,18 @@ tell in its plainest form. The subhead carries that content and it is enough.
 
 ### Copy decisions on record
 
-Two headings previously announced their own item count ("Three disciplines, one
-system", "Four words the work is held to"). Counting is an R-36 tell: the
-number is the model's way of sounding complete. The trio and the four are both
-real content, so they stayed; the headings stopped announcing them.
+One heading previously announced its own item count ("Three disciplines, one
+system"). Counting is an R-36 tell: the number is the model's way of sounding
+complete. The trio is real content, so it stayed; the heading stopped
+announcing it.
 
 - "What we bring to a project"
-- "What we judge the work against"
+
+The second heading on this list, "What we judge the work against", is gone. The
+identity strip it labelled was removed by owner instruction on 2026-10-18. Its
+four words, Minimal / Warm / Precise / Curious, remain the stated identity in
+section 1 and are still what the work is judged against; they are simply no
+longer printed on the page.
 
 The footer no longer reads "Direction documented in DESIGN.md". That was
 internal tooling text sitting on a public page.
@@ -472,22 +481,22 @@ stands.
 One page, three real sections. The order follows how a visitor decides: what
 this is and what it values, what it does, how it is judged, how to reach it.
 
-The identity words are **not** a section. They sit inside the hero as a
-horizontal strip under the actions, because four lookalike sections were worse
-than three sections that differ from each other (C-3).
-
-**Five distinct compositions**, which is what RHYTHM 3 requires:
+**Four distinct compositions**, which is what RHYTHM 3 requires:
 
 | # | Block | Alignment | Surface |
 |---|---|---|---|
 | 1 | Hero | centred | page |
-| 2 | Identity strip | left | page |
-| 3 | Capabilities | left, staggered | page |
-| 4 | Principles | left | inverted band |
-| 5 | Contact | centred | accent band |
+| 2 | Capabilities | left, staggered | page |
+| 3 | Principles | left | inverted band |
+| 4 | Contact | centred | accent band |
 
 The alignment pattern is deliberate: centre opens, left carries the middle,
 centre closes. Three surfaces, so no two adjacent blocks read the same way.
+
+The identity words were a fifth composition, a left-aligned strip inside the
+hero, and are gone by owner instruction 2026-10-18. Removing it took the
+count from five to four and left the pattern intact: the hero and the contact
+band are still the two centred blocks, and they are still the two ends.
 
 ### Inverted and accent bands
 

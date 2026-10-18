@@ -17,9 +17,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
  */
 const HERO_LINES = ["Ordo House"] as const;
 
-/** Identity adjectives, DESIGN.md section 1. */
-const IDENTITY = ["Minimal", "Warm", "Precise", "Curious"] as const;
-
 /** The three disciplines, DESIGN.md section 1. The trio is real; the heading
     no longer announces the count, which was the R-36 tell. */
 const CAPABILITIES = [
@@ -95,50 +92,24 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/* 1 of 5 compositions: centred, airy, on the page surface. */}
+        {/* 1 of 4 compositions: centred, airy, on the page surface. */}
         {/*
             Height follows Apple's tile model: each tile occupies roughly one
-            viewport (apple/DESIGN.md, section 4). The unit is
-            `100svh - header`, because the header is a normal-flow sibling, so
-            a bare 100svh would push the lockup below the fold by exactly the
-            header height. svh rather than vh so the mobile URL bar retracting
-            cannot cut the hero short.
+            viewport (apple/DESIGN.md, section 4). The unit is `100svh - header`,
+            because the header is a normal-flow sibling, so a bare 100svh would
+            push the lockup below the fold by exactly the header height. svh
+            rather than vh so a retracting mobile URL bar cannot cut the hero
+            short.
 
-            The identity strip's own top margin is trimmed at the base size
-            (mt-10 instead of mt-16) so it needs less vertical room, and it
-            relaxes to mt-20 once there is space.
-
-            Measured at 375x667, the shortest common phone: the hero comes to
-            111% of the viewport because the content genuinely needs more room
-            than one short screen holds, and min-height cannot shrink content.
-            What that costs is the identity strip, whose bottom lands at 778 on
-            a 667 screen. The primary lockup is unaffected: mark, name, role,
-            and both CTAs all finish at 372, well above the fold. The strip is
-            supporting detail and the lockup is the message, so the strip is
-            the right thing to push down.
+            The lockup is centred in that height. It was previously a group
+            inside a two-group tile, the other group being the identity strip,
+            which has since been removed; with one group left the wrapper div
+            and its flex plumbing went with it.
           */}
           <section
             aria-labelledby="hero-heading"
-            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col sm:min-h-[calc(100svh-5.25rem)]`}
+            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col items-center justify-center py-10 text-center sm:min-h-[calc(100svh-5.25rem)] sm:py-16`}
           >
-          {/*
-            Two groups, and the split is the whole point of this layout.
-
-            The lockup group takes the remaining height and centres itself in
-            it, so the mark, name, role, and CTAs sit optically centred in the
-            tile. The strip is a sibling, not a child of that group, so it is
-            pushed to the bottom edge by the section's flex rather than
-            floating in the middle.
-
-            Centring everything in one column was the earlier arrangement and
-            it wasted the height this tile just gained: measured at 1440x900,
-            135 to 243px of dead space sat between the strip and the bottom of
-            the screen, which made a viewport-tall hero look no taller than a
-            short one. Apple terminates each tile with its secondary element
-            against the bottom edge, which is what stops the eye reading the
-            space as an unfinished band.
-          */}
-          <div className="flex flex-1 flex-col items-center justify-center py-10 text-center sm:py-16">
           {/*
             Mark above the title, owner instruction 2026-10-18. The h1 is
             already the wordmark, so this puts the symbol and the name in that
@@ -182,40 +153,10 @@ export default function Home() {
               See what we bring
             </a>
           </div>
-          </div>
-
-          {/*
-            2 of 5: the identity words as a horizontal rule-separated strip,
-            left-aligned, at display scale. They sit inside the hero rather
-            than becoming a section of their own, which is why the page has
-            three real sections instead of four lookalike ones (C-3).
-
-            Anchored to the bottom edge of the tile. The margin is small
-            because the space above it is now structural: flex puts it there,
-            not a fixed gap.
-
-            Three responsive states, not two: one column, then two when the
-            words start wrapping badly, then four.
-          */}
-          <div className="mt-10 w-full shrink-0 border-t border-[var(--border-subtle)] pb-10 pt-6 text-left sm:mt-12 sm:pb-16 sm:pt-10">
-            <h2 className="text-caption uppercase tracking-[0.18em] text-text-accent">
-              What we judge the work against
-            </h2>
-            <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
-              {IDENTITY.map((word) => (
-                <li
-                  key={word}
-                  className="border-t border-[var(--border-subtle)] pt-4 font-display text-h3"
-                >
-                  {word}
-                </li>
-              ))}
-            </ul>
-          </div>
         </section>
 
         {/*
-          3 of 5: asymmetric staggered columns, left-aligned, big numerals.
+          2 of 4: asymmetric staggered columns, left-aligned, big numerals.
           The stagger starts at lg rather than md because a 5/6/5 split with
           offsets is cramped in the 768 to 1024 band.
         */}
@@ -252,7 +193,7 @@ export default function Home() {
         </section>
 
         {/*
-          4 of 5: left-aligned inside a full-bleed inverted band. The band
+          3 of 4: left-aligned inside a full-bleed inverted band. The band
           inverts per colour mode, so it reads as a hard edge in both
           (a Snow band on the light canvas would be a 1.04:1 edge).
         */}
@@ -289,7 +230,7 @@ export default function Home() {
         </section>
 
         {/*
-          5 of 5: centred on the accent band, the closing moment. Highest
+          4 of 4: centred on the accent band, the closing moment. Highest
           contrast surface on the page, used once. Snow on Tobacco Strong is
           4.96:1, which is why the fill token is Tobacco Strong and never the
           brand hue (the brand hue fails at 4.12:1).
