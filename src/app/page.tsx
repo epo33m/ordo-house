@@ -191,18 +191,29 @@ export default function Home() {
             <span className="block">Built with purpose.</span>
           </p>
 
+          {/*
+            One action, not two. The secondary "See what we bring" was
+            removed by owner instruction on 2026-10-18, after the hero review
+            asked for a clearer label and the options all failed one way or
+            another: "Explore" is forbidden outright by R-15, and a label
+            naming portfolio or approach would have misdescribed the
+            destination, which is services.
+
+            One filled button, so the outline variant leaves the page with it.
+            The section below is still reachable by scrolling, which is how
+            most people arrive at it anyway.
+
+            The wrapper stays as a single centred flex row rather than
+            collapsing to a bare anchor: it carries the 40px gap that
+            separates the lockup from the actions, and it keeps the button
+            centred without depending on its own width.
+          */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
               className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
             >
               Start a conversation
-            </a>
-            <a
-              href="#capabilities"
-              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
-            >
-              See what we bring
             </a>
           </div>
         </section>

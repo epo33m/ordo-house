@@ -86,20 +86,35 @@ test.describe("landing page", () => {
     expect(errors).toEqual([]);
   });
 
-  test("hero CTA 'See what we bring' scrolls to the capabilities section", async ({ page }) => {
+  test("every in-page anchor resolves to a target that exists (R-24)", async ({ page }) => {
     const errors = watchErrors(page);
     await page.goto(BASE, { waitUntil: "networkidle" });
 
-    const cta = page.getByRole("link", { name: "See what we bring" });
-    await expect(cta).toBeVisible();
-    await expect(cta).toHaveAttribute("href", "#capabilities");
+    // The hero's secondary CTA was removed by owner instruction. What must
+    // stay true is not the presence of any particular link but that no link
+    // on the page points at a target that does not exist.
+    const anchors = await page.evaluate(() =>
+      Array.from(document.querySelectorAll<HTMLAnchorElement>("a[href^='#']")).map((a) => ({
+        href: a.getAttribute("href")!,
+        text: (a.textContent ?? "").trim().slice(0, 30),
+        resolves: !!document.querySelector(a.getAttribute("href")!),
+      })),
+    );
 
+    expect(anchors.length, "page should still have in-page anchors").toBeGreaterThan(0);
+    const broken = anchors.filter((a) => !a.resolves);
+    expect(
+      broken.map((b) => `${b.text} -> ${b.href}`),
+      "anchors pointing at targets that do not exist",
+    ).toEqual([]);
+
+    // #capabilities lost its only link when the CTA was removed. It must
+    // still exist and still be reachable by scrolling.
     const capabilities = page.locator("#capabilities");
     await expect(capabilities).toHaveCount(1);
-
-    await cta.click();
-    await expect(page).toHaveURL(/#capabilities$/);
+    await capabilities.scrollIntoViewIfNeeded();
     await expect(capabilities).toBeInViewport();
+
     expect(errors).toEqual([]);
   });
 
@@ -174,11 +189,10 @@ test.describe("landing page", () => {
       expect(visible, `focused element ${info.label} has no box`).toBe(true);
     }
 
-    // The five controls must all appear in the tab sequence.
+    // The controls that remain must all appear in the tab sequence.
     const joined = order.join(" | ");
     expect(joined).toMatch(/Light|Dark/);
     expect(joined).toMatch(/Start a conversation/);
-    expect(joined).toMatch(/See what we bring/);
     expect(joined).toMatch(/mailto|@/);
     expect(errors).toEqual([]);
   });

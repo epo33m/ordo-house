@@ -47,10 +47,12 @@ output drifting past its own dial.
 The peak is expressed through type and space only. No colour, glow, gradient,
 or animation is added to achieve it, which keeps it inside R-01 and R-19.
 
-**Hero layout: centred, single column.** Owner direction, 2026-10-18. Eyebrow,
-headline, one supporting sentence, two actions, all on the centre axis. This
-replaced an earlier two-column arrangement with the wordmark on the left, which
-was the more editorial choice and sat better with RHYTHM 2.
+**Hero layout: centred, single column.** Owner direction, 2026-10-18. Mark,
+headline, one supporting sentence, and one action, all on the centre axis.
+This replaced an earlier two-column arrangement with the wordmark on the
+left, which was the more editorial choice and sat better with RHYTHM 2. The
+second action was removed later the same day, so the row is now a single
+filled button.
 
 The reason for the change: one focal point becomes unambiguous, scanning order
 is conventional rather than something to discover, and the hero reads identically
@@ -261,6 +263,10 @@ Radius variation is a hierarchy tool. Do not make every element a pill (R-11).
 - **Primary**: Tobacco Strong fill, Snow text, radius 12px, min-height 44px,
   padding 12 to 16px vertical and 20 to 24px horizontal.
 - **Secondary**: transparent fill, `--border-strong` border, current text colour.
+  The variant stays in the system but the homepage currently ships no
+  secondary button: the hero's "See what we bring" was removed by owner
+  instruction on 2026-10-18, which leaves `--border-strong` used for the
+  header hairline and the band separators rather than for any control.
 - States: visible hover, focus, active, and disabled. Never colour alone.
 - 44px minimum height on every breakpoint, matching Apple's 44x44pt guidance.
 
@@ -319,7 +325,7 @@ the viewport.
 
 **The three gaps in the lockup are owner-set, not derived.** Mark to name,
 24px rising to 32px at sm. Name to subhead, 16px rising to 20px at sm, down
-from a flat 32px. Subhead to the CTA row, a flat 40px. The pattern is
+from a flat 32px. Subhead to the action, a flat 40px. The pattern is
 deliberate: the two gaps inside the identity block bind it into one unit, and
 the larger one is what separates that unit from the actions. Do not flatten
 these to a single value, and do not restore the old 32px under the name, the
