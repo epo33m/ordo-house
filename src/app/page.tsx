@@ -1,69 +1,167 @@
-import Image from "next/image";
+import { ThemeToggle } from "@/components/theme-toggle";
+
+/**
+ * The three capabilities are the only product claims on this page, and they
+ * come straight from DESIGN.md section 1 rather than from invention.
+ */
+const CAPABILITIES = [
+  {
+    name: "Strategy",
+    body: "Positioning, scope, and the decisions a project should make before anything is built.",
+  },
+  {
+    name: "Design",
+    body: "Identity, interface, and editorial systems with a stated reason behind every visual choice.",
+  },
+  {
+    name: "Technology",
+    body: "Frontends that stay maintainable as the product grows, built on the system rather than around it.",
+  },
+];
+
+const PRINCIPLES = [
+  {
+    title: "Purpose before decoration",
+    body: "Every element earns its place. If the reason for a choice cannot be written in one line, the choice is not valid.",
+  },
+  {
+    title: "Hierarchy from type and space",
+    body: "Structure comes from typography and spacing. Borders and effects only come after that structure works.",
+  },
+  {
+    title: "Accent, never substitute",
+    body: "The brand colour highlights actions and information. It never carries meaning that contrast should carry.",
+  },
+  {
+    title: "Motion with a job",
+    body: "Interface state changes animate so they read as one object. Nothing moves to fill a screen.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <header className="border-b border-[var(--border-subtle)]">
+        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-between py-6">
+          {/*
+            R-23: no logo asset was supplied, so the product name is set in the
+            display face as an honest placeholder rather than an invented mark.
+          */}
+          <span className="font-display text-lg font-bold tracking-tight">ORDO</span>
+          <nav aria-label="Theme" className="flex items-center gap-3">
+            <ThemeToggle />
+          </nav>
+        </div>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero. One focal point: the headline. Nothing competes with it. */}
+        <section className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-24 md:py-36">
+          <p className="text-caption uppercase tracking-[0.18em] text-text-accent">
+            Strategy, design, technology
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <h1 className="mt-6 max-w-[16ch] text-hero text-balance">
+            Considered digital systems
+          </h1>
+          <p className="mt-8 max-w-[52ch] text-body-lg text-text-muted">
+            ORDO turns ideas into digital products where the visual language, the
+            interface, and the code behind them all come from one system rather
+            than three separate opinions.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#capabilities"
+              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-colors hover:opacity-90"
+            >
+              See how the work is structured
+            </a>
+            <a
+              href="#principles"
+              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
+            >
+              Read the operating principles
+            </a>
+          </div>
+        </section>
+
+        {/*
+          RHYTHM 2: an offset editorial list rather than three identical cards.
+          Equal-width cards would repeat the same composition three times and
+          imply the three capabilities are interchangeable (R-14, R-05).
+        */}
+        <section
+          id="capabilities"
+          aria-labelledby="capabilities-heading"
+          className="border-t border-[var(--border-subtle)] scroll-mt-16"
+        >
+          <div className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-20 md:py-28">
+            <h2 id="capabilities-heading" className="text-h2 max-w-[20ch]">
+              Three disciplines, one system
+            </h2>
+            <dl className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-12">
+              {CAPABILITIES.map((item, index) => (
+                <div
+                  key={item.name}
+                  className={
+                    index === 0
+                      ? "md:col-span-5 md:col-start-1"
+                      : index === 1
+                        ? "md:col-span-6 md:col-start-7"
+                        : "md:col-span-5 md:col-start-3"
+                  }
+                >
+                  <dt className="flex items-baseline gap-3">
+                    <span className="text-caption tabular-nums text-text-accent">
+                      0{index + 1}
+                    </span>
+                    <span className="font-display text-h3">{item.name}</span>
+                  </dt>
+                  <dd className="mt-4 max-w-[42ch] text-text-muted">{item.body}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        <section
+          id="principles"
+          aria-labelledby="principles-heading"
+          className="scroll-mt-16 bg-surface"
+        >
+          <div className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-20 md:py-28">
+            <h2 id="principles-heading" className="text-h2 max-w-[24ch]">
+              How the work is judged
+            </h2>
+            <ol className="mt-14 max-w-[68ch]">
+              {PRINCIPLES.map((item, index) => (
+                <li
+                  key={item.title}
+                  className="border-t border-[var(--border-subtle)] py-7 first:border-t-0 first:pt-0"
+                >
+                  <div className="flex flex-col gap-2 md:flex-row md:gap-8">
+                    <span className="text-caption tabular-nums text-text-accent md:w-8 md:shrink-0">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="font-display text-[1.0625rem] font-semibold">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 max-w-[62ch] text-text-muted">{item.body}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="border-t border-[var(--border-subtle)]">
+        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] flex-col gap-2 py-8 text-caption text-text-muted md:flex-row md:items-center md:justify-between">
+          <span>ORDO</span>
+          <span>Direction documented in DESIGN.md</span>
+        </div>
+      </footer>
+    </>
   );
 }

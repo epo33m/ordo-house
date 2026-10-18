@@ -1,26 +1,194 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * ORDO design tokens. Direction lives in DESIGN.md; this file is the
+ * implementation of it. Every colour pair was measured with the antislop
+ * contrast checker, so do not hand-tune a value without re-running it.
+ */
+
+/* ------------------------------------------------------------------ *
+ * Semantic roles. These hold the actual values; the brand hues below
+ * are referenced, never duplicated, so a hue change lands everywhere.
+ * ------------------------------------------------------------------ */
+/*
+ * Theme resolution, in order:
+ *   1. data-theme="light" on <html>  (set server-side from the cookie)
+ *   2. data-theme="dark"             (explicit dark choice)
+ *   3. neither                       (follow the OS, handled by the media query)
+ * There is no inline script, so there is nothing to flash and nothing for
+ * React to complain about.
+ */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: var(--charcoal-deep);
+  --surface: var(--charcoal-hue);
+
+  --text-primary: var(--snow-hue);
+  --text-muted: #c9c4bd;
+  --text-accent: var(--tobacco-lift);
+
+  --border-subtle: rgb(255 250 250 / 0.16);
+  --border-strong: #6b6b6b;
+
+  --fill-accent: var(--tobacco-strong-hue);
+  --fill-on-accent: var(--snow-hue);
+
+  --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.24);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="light"] {
+  color-scheme: light;
+
+  --canvas: var(--canvas-light-hue);
+  --surface: var(--snow-hue);
+
+  --text-primary: var(--charcoal-hue);
+  --text-muted: #57534c;
+  --text-accent: #6b5a3c;
+
+  --border-subtle: rgb(43 43 43 / 0.14);
+  --border-strong: #8a857d;
+
+  --fill-accent: var(--tobacco-strong-hue);
+  --fill-on-accent: var(--snow-hue);
+
+  --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* No stored choice: follow the operating system. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --canvas: var(--canvas-light-hue);
+    --surface: var(--snow-hue);
+
+    --text-primary: var(--charcoal-hue);
+    --text-muted: #57534c;
+    --text-accent: #6b5a3c;
+
+    --border-subtle: rgb(43 43 43 / 0.14);
+    --border-strong: #8a857d;
+
+    --fill-accent: var(--tobacco-strong-hue);
+    --fill-on-accent: var(--snow-hue);
+
+    --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.12);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ------------------------------------------------------------------ *
+ * Brand hues. Raw values, no roles. Contrast-safe pairings are listed
+ * in DESIGN.md section 2.
+ * ------------------------------------------------------------------ */
+:root {
+  --tobacco-hue: #8c7853;
+  --tobacco-strong-hue: #7e6b4b;
+  --tobacco-lift: #a8905f;
+  --tobacco-dark: #6b5a3c;
+
+  --snow-hue: #fffafa;
+  --canvas-light-hue: #f4f1ec;
+  --charcoal-hue: #2b2b2b;
+  --charcoal-deep: #1f1f1f;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-accent: var(--text-accent);
+  --color-accent: var(--fill-accent);
+  --color-on-accent: var(--fill-on-accent);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+  --text-h3: clamp(1.375rem, 2vw, 1.75rem);
+  --text-h3--line-height: 1.25;
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h2--line-height: 1.15;
+  --text-h1: clamp(2.25rem, 5vw, 4rem);
+  --text-h1--line-height: 1.1;
+  --text-hero: clamp(2.5rem, 7vw, 5.5rem);
+  --text-hero--line-height: 1;
+
+  --radius-small: 8px;
+  --radius-button: 12px;
+  --radius-card: 16px;
+  --radius-large: 20px;
+
+  --container-max: 1440px;
+  --grid-gutter: 24px;
+
+  --shadow-overlay: var(--shadow-overlay);
+}
+
+@layer base {
+  body {
+    background: var(--canvas);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+
+  h2 {
+    font-weight: 600;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  /*
+   * A visible focus ring on everything focusable. Never removed, only
+   * replaced (R-32). Offset so it reads on both canvas colours.
+   */
+  :focus-visible {
+    outline: 2px solid var(--text-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--fill-accent);
+    color: var(--fill-on-accent);
+  }
+}
+
+/*
+ * MOTION is dial 1: motion exists only where interaction benefits, and
+ * every animation collapses to a state change under reduced motion.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -60,6 +60,14 @@ These skills are vendored from `miqdadbadjuber/anti-slop` (v3.2.21) into the glo
 - Remove: delete the six folders under `~/.config/opencode/skills/`, plus `.opencode/plugins/antislop.js` and this block.
 - Do not install the same names into `.opencode/skills/` or `.agents/skills/` here: OpenCode reads both, and a duplicate name across locations has no defined winner.
 
+## Design system
+
+**For any UI work, read `DESIGN.md` first for direction, then apply antislop as the filter.** Direction and filter are separate jobs: `DESIGN.md` supplies identity, palette, type, spacing, and dials; antislop rejects generic output and runs the Delivery Gate. Neither replaces the other.
+
+Tokens are implemented in `src/app/globals.css` as Tailwind v4 `@theme` variables, loaded via `next/font` in `src/app/layout.tsx`. Components read tokens, never raw hex.
+
+Contrast values in `DESIGN.md` are measured, not estimated. Re-run `python3 ~/.config/opencode/skills/antislop-human/contrast-check.py "#fg" "#bg"` before changing any colour, and keep both modes working.
+
 ## Apple Human Interface Guidelines
 
 A local archive of Apple's HIG is **mandatory reference material** for design decisions in this project.
