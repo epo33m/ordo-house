@@ -75,16 +75,12 @@ export default function Home() {
       <header className="border-b border-[var(--border-subtle)]">
         <div className={`mx-auto flex ${SECTION_W} items-center justify-between py-4 sm:py-5`}>
           {/*
-            Real mark, supplied 2026-10-18. It inherits currentColor, so the
-            header, the inverted band, and the accent band all get the correct
-            variant without a second asset. See src/components/logo.tsx.
+            Mark only, owner instruction 2026-10-18. The wordmark was removed
+            from the header: the hero now carries the mark above the name, so
+            the name was appearing twice in the first screen. The mark is
+            distinctive enough to stand alone as the way back to the top.
           */}
-          <span className="flex items-center gap-2.5 text-text">
-            <Logo className="h-7 w-7 shrink-0" />
-            <span className="font-display text-lg font-bold tracking-tight">
-              ORDO HOUSE
-            </span>
-          </span>
+          <Logo className="h-7 w-7 shrink-0 text-text" />
           <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
