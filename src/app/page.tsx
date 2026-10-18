@@ -76,7 +76,7 @@ const TEXT_W = "w-[min(calc(100%_-_3rem),var(--container-text))]";
 export default function Home() {
   return (
     <>
-      <header className="border-b border-[var(--border-subtle)]">
+      <header id="top" className="border-b border-[var(--border-subtle)]">
         {/*
             Height is Apple's global-nav height, 44px, per apple/DESIGN.md
             `{component.global-nav}`. It was 76px base and 84px from sm,
@@ -99,8 +99,24 @@ export default function Home() {
             20px, not Apple's 14px logo, because this mark is a filled shape
             with more visual weight than a wordmark glyph, and 20px is also
             what the footer uses, so the two stay consistent.
+
+            It is a link to the top of the page. It was an inert mark before,
+            which is the one real gap the hero review of 2026-10-18 found
+            here: a logo in a header is the standard way back, and this one
+            did nothing. The 44px minimum is carried by the anchor rather than
+            the glyph, since a 20px target would fail R-03 on a phone.
+
+            The target is #top on the header, not the h1. Scrolling the
+            headline into view landed at y=273 with the hero still filling
+            the screen, which does not match what the label promises.
           */}
-          <Logo className="h-5 w-5 shrink-0 text-text" />
+          <a
+            href="#top"
+            aria-label="ORDO House, back to top"
+            className="-ml-2 inline-flex h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)]"
+          >
+            <Logo className="h-5 w-5 shrink-0 text-text" />
+          </a>
           <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
