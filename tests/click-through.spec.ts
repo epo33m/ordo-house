@@ -68,11 +68,14 @@ test.describe("landing page", () => {
     expect(errors).toEqual([]);
   });
 
-  test("hero CTA 'Start a conversation' scrolls to the contact band", async ({ page }) => {
+  test("hero CTA scrolls to the contact band", async ({ page }) => {
     const errors = watchErrors(page);
     await page.goto(BASE, { waitUntil: "networkidle" });
 
-    const cta = page.getByRole("link", { name: "Start a conversation" });
+    // Matched loosely on purpose: the label is owner copy and has changed
+    // twice. What is under test is that the button exists, points at the
+    // contact band, and lands it in the viewport.
+    const cta = page.getByRole("link", { name: /work together/i });
     await expect(cta).toBeVisible();
     await expect(cta).toHaveAttribute("href", "#contact");
 
@@ -192,7 +195,7 @@ test.describe("landing page", () => {
     // The controls that remain must all appear in the tab sequence.
     const joined = order.join(" | ");
     expect(joined).toMatch(/Light|Dark/);
-    expect(joined).toMatch(/Start a conversation/);
+    expect(joined).toMatch(/work together/i);
     expect(joined).toMatch(/mailto|@/);
     expect(errors).toEqual([]);
   });

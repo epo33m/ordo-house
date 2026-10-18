@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792335782.7937033,
-    "seen": 1792335877.847596,
-    "ast_hash": "6443f8f3d2e17c38b49ae25624364914",
+    "mtime": 1792335914.1096444,
+    "seen": 1792335973.8099918,
+    "ast_hash": "2f38dc7c5cebe27e03f4e0b7e51f0397",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -132,9 +132,9 @@
     "semantic_hash": ""
   },
   "tests/click-through.spec.ts": {
-    "mtime": 1792335792.5004587,
-    "seen": 1792335877.847598,
-    "ast_hash": "07d7f4f3a5011bae43b67abcab17f0c5",
+    "mtime": 1792335923.6823041,
+    "seen": 1792335973.809995,
+    "ast_hash": "42632944d0922e227b78e6d92f91551e",
     "semantic_hash": ""
   }
 }

@@ -207,13 +207,21 @@ export default function Home() {
             collapsing to a bare anchor: it carries the 40px gap that
             separates the lockup from the actions, and it keeps the button
             centred without depending on its own width.
+
+            Label is owner wording, 2026-10-18, replacing "Start a
+            conversation". It names the relationship rather than the next
+            click, which suits a studio whose first move is a conversation
+            anyway. It uses a typographic apostrophe rather than a straight
+            one, matching the editorial character the design direction asks
+            for; the straight form in the owner's note was typing, not a
+            request for that glyph.
           */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#contact"
               className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
             >
-              Start a conversation
+              Let’s work together
             </a>
           </div>
         </section>
