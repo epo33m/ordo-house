@@ -36,6 +36,18 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
 | RHYTHM | 2 | Consistent grid with selective asymmetry for editorial character. Sections may break pattern when content earns it, not by default. |
 | MOTION | 1 | Motion supports usability only. The brief states effects must not distract from content, so no scroll choreography, parallax, or reveals. |
 
+### One deliberate peak
+
+The hero is **ENERGY 3 inside an ENERGY 2 system**: a hero-scale headline at
+weight 750 and 0.95 leading, with a struck word as the typographic device.
+Nothing else on the site is allowed to reach that intensity. That contrast is
+the point. Every other section stays at ENERGY 2 or below, and the peak is
+recorded here so it reads as a decision rather than as output drifting past its
+own dial.
+
+The peak is expressed through type and space only. No colour, glow, gradient,
+or animation is added to achieve it, which keeps it inside R-01 and R-19.
+
 **Reading as:** `<page kind>` for `<audience>`, in a warm editorial language,
 dial ENERGY 2 / RHYTHM 2 / MOTION 1.
 
@@ -266,6 +278,22 @@ piece of metadata into a badge (R-09).
 
 - **Hero**: eyebrow, one headline, one supporting sentence, one primary CTA,
   optional supporting element. Not a template with filler sections.
+
+### Hero device
+
+The hero headline is set as five short lines at hero scale, tight leading, and
+weight 750. Line 3 strikes the article `a` with a bar in the accent colour:
+unstruck it reads *"systems for a the Digital Products"*, struck it reads
+*"systems for the Digital Products"*.
+
+Two rules govern the bar:
+
+- **It is a meaningful graphic, so it meets 3:1.** WCAG 1.4.11 exempts purely
+  decorative graphics, but this bar signals a deletion, which is information.
+  It uses `--color-text-accent`: 5.35:1 on Canvas and 5.91:1 on Canvas Light.
+  The brand hue `#8C7853` was rejected at 3.87:1 as too thin a margin.
+- **The struck letter is hidden from assistive technology.** A screen reader
+  gets the intended sentence, not the grammatical slip the device depends on.
 - **Services**: state the outcome, not only the name.
 - **Work**: lead with the work. Never invent results or metrics (R-17, R-36).
 - **Journal**: reading comfort first, consistent heading, list, quote, and code

@@ -204,6 +204,29 @@
 }
 
 /*
+ * The strikethrough in the hero is a meaningful graphic, not decoration: it
+ * signals that a word is struck. It is therefore held to the 3:1 non-text
+ * minimum (WCAG 1.4.11) rather than treated as ornamental, and uses the accent
+ * token, which clears 3:1 in both colour modes.
+ */
+.strike-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.strike-accent::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  top: 52%;
+  height: 0.1em;
+  background-color: var(--text-accent);
+  transform: translateY(-50%);
+  border-radius: var(--radius-small);
+}
+
+/*
  * MOTION is dial 1: motion exists only where interaction benefits, and
  * every animation collapses to a state change under reduced motion.
  */

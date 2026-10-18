@@ -38,49 +38,86 @@ const PRINCIPLES = [
   },
 ];
 
+/**
+ * The hero's five lines, written as separate elements so the strike can be
+ * placed on one word. Claims come from DESIGN.md only (R-38).
+ *
+ * Line 3 carries the device: unstruck it reads "a the", struck it reads
+ * "the". The struck letter is hidden from assistive tech so a screen reader
+ * gets the intended sentence rather than the grammatical slip.
+ */
+const HERO_LINES = [
+  { id: "l1", text: "Considered" },
+  { id: "l2", text: "systems for" },
+  { id: "l3", text: "the" },
+  { id: "l4", text: "Digital" },
+  { id: "l5", text: "Products" },
+] as const;
+
 export default function Home() {
   return (
     <>
       <header className="border-b border-[var(--border-subtle)]">
-        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-between py-6">
-          {/*
-            R-23: no logo asset was supplied, so the product name is set in the
-            display face as an honest placeholder rather than an invented mark.
-          */}
-          <span className="font-display text-lg font-bold tracking-tight">ORDO</span>
-          <nav aria-label="Theme" className="flex items-center gap-3">
+        <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-end py-5">
+          {/* The wordmark moved into the hero; the header keeps only this control. */}
+          <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
         </div>
       </header>
 
       <main className="flex-1">
-        {/* Hero. One focal point: the headline. Nothing competes with it. */}
-        <section className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-24 md:py-36">
-          <p className="text-caption uppercase tracking-[0.18em] text-text-accent">
-            Strategy, design, technology
-          </p>
-          <h1 className="mt-6 max-w-[16ch] text-hero text-balance">
-            Considered digital systems
-          </h1>
-          <p className="mt-8 max-w-[52ch] text-body-lg text-text-muted">
-            ORDO turns ideas into digital products where the visual language, the
-            interface, and the code behind them all come from one system rather
-            than three separate opinions.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#capabilities"
-              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-colors hover:opacity-90"
-            >
-              See how the work is structured
-            </a>
-            <a
-              href="#principles"
-              className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
-            >
-              Read the operating principles
-            </a>
+        {/*
+          One focal point: the headline. Deliberately the most assertive screen
+          in the site, recorded in DESIGN.md as an ENERGY 3 peak inside an
+          ENERGY 2 system.
+        */}
+        <section className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] min-h-[78svh] items-center py-16 md:py-24">
+          <div className="grid w-full grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
+            {/* Identity column. R-23: no logo asset exists, so this is the
+                product name set in the display face, not an invented mark. */}
+            <div className="md:col-span-5 lg:col-span-6">
+              <span className="block font-display text-4xl font-bold uppercase leading-[0.9] tracking-tight md:text-5xl lg:text-6xl">
+                ORDO
+              </span>
+              <span className="mt-4 block max-w-[24ch] text-caption uppercase tracking-[0.18em] text-text-accent">
+                Strategy, design, technology
+              </span>
+            </div>
+
+            <div className="md:col-span-7 lg:col-span-6">
+              <h1 className="text-hero font-[750] leading-[0.95] tracking-display">
+                {HERO_LINES.map((line) => (
+                  <span key={line.id} className="block">
+                    {line.id === "l3" ? (
+                      <>
+                        <span className="strike-accent mr-2 sm:mr-3" aria-hidden="true">
+                          a
+                        </span>
+                        {line.text}
+                      </>
+                    ) : (
+                      line.text
+                    )}
+                  </span>
+                ))}
+              </h1>
+
+              <div className="mt-12 flex flex-wrap items-center gap-4">
+                <a
+                  href="#capabilities"
+                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
+                >
+                  See how the work is structured
+                </a>
+                <a
+                  href="#principles"
+                  className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
+                >
+                  Read the operating principles
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
