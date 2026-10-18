@@ -1,9 +1,17 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 
 /**
- * The three capabilities are the only product claims on this page, and they
- * come straight from DESIGN.md section 1 rather than from invention.
+ * Every string on this page traces to DESIGN.md or to an owner instruction.
+ * Nothing here is invented: no metrics, no clients, no testimonials, no
+ * project names (R-17, R-18, R-36, R-38).
  */
+
+const HERO_LINES = ["Create and", "Build what", "you need"] as const;
+
+/** Identity adjectives, DESIGN.md section 1. */
+const IDENTITY = ["Minimal", "Warm", "Precise", "Curious"] as const;
+
+/** The three disciplines, DESIGN.md section 1. */
 const CAPABILITIES = [
   {
     name: "Strategy",
@@ -19,6 +27,7 @@ const CAPABILITIES = [
   },
 ];
 
+/** Design principles, DESIGN.md section 1. */
 const PRINCIPLES = [
   {
     title: "Purpose before decoration",
@@ -38,28 +47,15 @@ const PRINCIPLES = [
   },
 ];
 
-/**
- * The hero's five lines, written as separate elements so the strike can be
- * placed on one word. Claims come from DESIGN.md only (R-38).
- *
- * Line 3 carries the device: unstruck it reads "a the", struck it reads
- * "the". The struck letter is hidden from assistive tech so a screen reader
- * gets the intended sentence rather than the grammatical slip.
- */
-const HERO_LINES = [
-  { id: "l1", text: "Considered" },
-  { id: "l2", text: "systems for" },
-  { id: "l3", text: "the" },
-  { id: "l4", text: "Digital" },
-  { id: "l5", text: "Products" },
-] as const;
+// TODO(owner): replace with the real inbox before launch. Rendered visibly as
+// a placeholder so it cannot ship looking final (R-23, R-26).
+const CONTACT_EMAIL = "hello@ordo.example";
 
 export default function Home() {
   return (
     <>
       <header className="border-b border-[var(--border-subtle)]">
         <div className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] items-center justify-end py-5">
-          {/* The wordmark moved into the hero; the header keeps only this control. */}
           <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
@@ -67,16 +63,12 @@ export default function Home() {
       </header>
 
       <main className="flex-1">
-        {/*
-          One focal point: the headline. Deliberately the most assertive screen
-          in the site, recorded in DESIGN.md as an ENERGY 3 peak inside an
-          ENERGY 2 system.
-        */}
+        {/* Hero. One focal point, recorded as the ENERGY 3 peak in DESIGN.md. */}
         <section className="mx-auto flex w-[min(calc(100%_-_3rem),var(--container-max))] min-h-[78svh] items-center py-16 md:py-24">
           <div className="grid w-full grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
-            {/* Identity column. R-23: no logo asset exists, so this is the
-                product name set in the display face, not an invented mark. */}
             <div className="md:col-span-5 lg:col-span-6">
+              {/* R-23: no logo asset exists, so this is the product name set in
+                  the display face, not an invented mark. */}
               <span className="block font-display text-4xl font-bold uppercase leading-[0.9] tracking-tight md:text-5xl lg:text-6xl">
                 ORDO
               </span>
@@ -86,35 +78,31 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-7 lg:col-span-6">
+              {/*
+                No strikethrough here. The device depended on a removable word,
+                and this headline has none: striking any single word breaks the
+                sentence. Forcing it would be decoration, not meaning.
+              */}
               <h1 className="text-hero font-[750] leading-[0.95] tracking-display">
                 {HERO_LINES.map((line) => (
-                  <span key={line.id} className="block">
-                    {line.id === "l3" ? (
-                      <>
-                        <span className="strike-accent mr-2 sm:mr-3" aria-hidden="true">
-                          a
-                        </span>
-                        {line.text}
-                      </>
-                    ) : (
-                      line.text
-                    )}
+                  <span key={line} className="block">
+                    {line}
                   </span>
                 ))}
               </h1>
 
               <div className="mt-12 flex flex-wrap items-center gap-4">
                 <a
-                  href="#capabilities"
+                  href="#contact"
                   className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
                 >
-                  See how the work is structured
+                  Start a conversation
                 </a>
                 <a
-                  href="#principles"
+                  href="#capabilities"
                   className="inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] px-6 text-[0.9375rem] font-medium transition-colors hover:bg-surface"
                 >
-                  Read the operating principles
+                  See how the work is structured
                 </a>
               </div>
             </div>
@@ -122,14 +110,35 @@ export default function Home() {
         </section>
 
         {/*
-          RHYTHM 2: an offset editorial list rather than three identical cards.
-          Equal-width cards would repeat the same composition three times and
-          imply the three capabilities are interchangeable (R-14, R-05).
+          RHYTHM 2: an offset editorial list, not four identical chips. Equal
+          chips would repeat one composition and imply the adjectives are
+          interchangeable (R-14, R-05).
         */}
+        <section
+          aria-labelledby="identity-heading"
+          className="border-t border-[var(--border-subtle)] scroll-mt-16"
+        >
+          <div className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-20 md:py-28">
+            <h2 id="identity-heading" className="text-h2 max-w-[22ch]">
+              Four words the work is held to
+            </h2>
+            <ul className="mt-12 grid gap-y-8 sm:grid-cols-2 sm:gap-x-8 md:grid-cols-4">
+              {IDENTITY.map((word, index) => (
+                <li key={word}>
+                  <span className="text-caption tabular-nums text-text-accent">
+                    0{index + 1}
+                  </span>
+                  <span className="mt-2 block font-display text-h3">{word}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section
           id="capabilities"
           aria-labelledby="capabilities-heading"
-          className="border-t border-[var(--border-subtle)] scroll-mt-16"
+          className="scroll-mt-16"
         >
           <div className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-20 md:py-28">
             <h2 id="capabilities-heading" className="text-h2 max-w-[20ch]">
@@ -189,6 +198,37 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/*
+          Contact. A mailto is a real external action, which antislop counts as
+          functional, so this is not a dead control (R-26). There is no form
+          because there is no endpoint to submit to, and a form that posts
+          nowhere is exactly the dead control that rule targets.
+        */}
+        <section
+          id="contact"
+          aria-labelledby="contact-heading"
+          className="scroll-mt-16 border-t border-[var(--border-subtle)]"
+        >
+          <div className="mx-auto w-[min(calc(100%_-_3rem),var(--container-max))] py-20 md:py-28">
+            <h2 id="contact-heading" className="text-h2 max-w-[20ch]">
+              Tell us what you are building
+            </h2>
+            <p className="mt-6 max-w-[52ch] text-body-lg text-text-muted">
+              Send the problem rather than the brief. We would rather start from
+              what is actually in the way.
+            </p>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-10 inline-flex h-11 items-center justify-center rounded-[var(--radius-button)] bg-accent px-6 text-[0.9375rem] font-medium text-on-accent transition-opacity hover:opacity-90"
+            >
+              Email ORDO
+            </a>
+            <p className="mt-4 text-caption text-text-muted">
+              Address to confirm: {CONTACT_EMAIL}
+            </p>
           </div>
         </section>
       </main>

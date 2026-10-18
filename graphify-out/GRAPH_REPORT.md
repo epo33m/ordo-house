@@ -1,17 +1,17 @@
 # Graph Report - ordo-house  (2026-10-18)
 
 ## Corpus Check
-- 13 files · ~6,735 words
+- 13 files · ~7,003 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 6 file(s) not represented in the graph (top: (none) 2, .mdc 1, .lock 1)
 
 ## Summary
-- 151 nodes · 157 edges · 12 communities
+- 153 nodes · 159 edges · 12 communities
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7093a9bd`
+- Built from commit: `19f26059`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,7 @@
 - graphify
 - antislop.js
 - theme-toggle.tsx
-- 6. Components
+- 2. Color
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 19 edges
@@ -82,7 +82,7 @@ Nodes (7): nextConfig, next, jakarta, metadata, RootLayout(), viewport, ThemeSyn
 
 ### Community 7 - "ORDO Design System"
 Cohesion: 0.08
-Nodes (24): 10. Open items, 1. Identity, 2. Color, 3. Typography, 4. Layout and spacing, 5. Shape, borders, effects, 7. Content, 8. Accessibility (+16 more)
+Nodes (25): 10. Open items, 1. Identity, 3. Typography, 4. Layout and spacing, 5. Shape, borders, effects, 6. Components, 7. Content, 8. Accessibility (+17 more)
 
 ### Community 8 - "graphify"
 Cohesion: 0.22
@@ -93,22 +93,22 @@ Cohesion: 0.15
 Nodes (11): ALL_SKILLS, directive(), installed, location, setup(), SKILL_DIR, INDEX, location (+3 more)
 
 ### Community 10 - "theme-toggle.tsx"
-Cohesion: 0.21
-Nodes (12): react, CAPABILITIES, HERO_LINES, Home(), PRINCIPLES, getServerSnapshot(), getSnapshot(), persist() (+4 more)
+Cohesion: 0.19
+Nodes (13): react, CAPABILITIES, HERO_LINES, Home(), IDENTITY, PRINCIPLES, getServerSnapshot(), getSnapshot() (+5 more)
 
-### Community 12 - "6. Components"
+### Community 11 - "2. Color"
 Cohesion: 0.33
-Nodes (6): 6. Components, Badges, Buttons, Cards, Inputs, Navigation
+Nodes (6): 2. Color, Known-failing pairs, do not use, Measured contrast, Non-text contrast (WCAG 1.4.11, 3:1), Tokens, Usage balance
 
 ## Knowledge Gaps
 - **7 isolated node(s):** `react-dom`, `@tailwindcss/turbopack`, `@types/node`, `@types/react`, `@types/react-dom` (+2 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 105 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 107 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `react` connect `theme-toggle.tsx` to `package.json`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `ThemeToggle()` (e.g. with `getServerSnapshot()` and `getSnapshot()`) actually correct?**
   _`ThemeToggle()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `react-dom`, `@tailwindcss/turbopack`, `@types/node` to the rest of the system?**
@@ -116,8 +116,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
-- **Why does `ORDO Design System` connect `ORDO Design System` to `6. Components`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `ORDO Design System` connect `ORDO Design System` to `2. Color`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._

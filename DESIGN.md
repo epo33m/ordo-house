@@ -281,19 +281,36 @@ piece of metadata into a badge (R-09).
 
 ### Hero device
 
-The hero headline is set as five short lines at hero scale, tight leading, and
-weight 750. Line 3 strikes the article `a` with a bar in the accent colour:
-unstruck it reads *"systems for a the Digital Products"*, struck it reads
-*"systems for the Digital Products"*.
+The hero headline is set as short lines at hero scale, tight leading, and
+weight 750: **Create and / Build what / you need**, owner wording from
+2026-10-18.
 
-Two rules govern the bar:
+**There is no strikethrough.** An earlier revision used a struck article as a
+device. It was dropped because that device depends on a word that can be
+removed without breaking the sentence, and this headline has none. Striking
+"and", "what", or "you" each produces a broken clause. Forcing a bar onto any
+of them would be decoration standing in for meaning, which is the specific
+failure this system is built to avoid (C-1, R-31).
 
-- **It is a meaningful graphic, so it meets 3:1.** WCAG 1.4.11 exempts purely
-  decorative graphics, but this bar signals a deletion, which is information.
-  It uses `--color-text-accent`: 5.35:1 on Canvas and 5.91:1 on Canvas Light.
-  The brand hue `#8C7853` was rejected at 3.87:1 as too thin a margin.
-- **The struck letter is hidden from assistive technology.** A screen reader
-  gets the intended sentence, not the grammatical slip the device depends on.
+The `.strike-accent` utility remains in `globals.css` unused, ready for a
+headline where the device genuinely applies. If it is still unused when the
+tokens are next reviewed, delete it rather than leaving it to look intentional.
+
+### Page structure
+
+One page, five sections, in this order: hero, identity, capabilities,
+principles, contact. The order follows how a visitor decides, not a template:
+what this is, what it values, what it does, how it is judged, how to reach it.
+
+**Deliberately absent:** work or portfolio, testimonials, client logos,
+statistics, pricing, and FAQ. Each would require content that does not exist
+yet, and inventing any of them is forbidden (R-17, R-18, R-28, R-36, R-38).
+An empty section is better than a fabricated one. Each becomes buildable the
+moment there is real material to put in it.
+
+Contact is a `mailto:`, not a form. A form with no endpoint to submit to is
+exactly the dead control R-26 targets, and antislop counts a real external
+action as functional.
 - **Services**: state the outcome, not only the name.
 - **Work**: lead with the work. Never invent results or metrics (R-17, R-36).
 - **Journal**: reading comfort first, consistent heading, list, quote, and code
