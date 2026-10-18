@@ -35,6 +35,17 @@
   --fill-accent: var(--tobacco-strong-hue);
   --fill-on-accent: var(--snow-hue);
 
+  /*
+   * Inverted band. It has to invert per mode, not just in dark: a Snow band
+   * on the light canvas would be a 1.04:1 edge and effectively invisible.
+   * Inverting gives a 15.94:1 edge in dark and 12.57:1 in light.
+   */
+  --band-surface: var(--snow-hue);
+  --band-text: var(--charcoal-hue);
+  --band-muted: #57534c;
+  --band-accent: var(--tobacco-dark);
+  --band-border: rgb(43 43 43 / 0.14);
+
   --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.24);
 }
 
@@ -53,6 +64,12 @@
 
   --fill-accent: var(--tobacco-strong-hue);
   --fill-on-accent: var(--snow-hue);
+
+  --band-surface: var(--charcoal-hue);
+  --band-text: var(--snow-hue);
+  --band-muted: #c9c4bd;
+  --band-accent: var(--tobacco-lift);
+  --band-border: rgb(255 250 250 / 0.16);
 
   --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.12);
 }
@@ -74,6 +91,12 @@
 
     --fill-accent: var(--tobacco-strong-hue);
     --fill-on-accent: var(--snow-hue);
+
+    --band-surface: var(--charcoal-hue);
+    --band-text: var(--snow-hue);
+    --band-muted: #c9c4bd;
+    --band-accent: var(--tobacco-lift);
+    --band-border: rgb(255 250 250 / 0.16);
 
     --shadow-overlay: 0 16px 48px rgb(0 0 0 / 0.12);
   }
@@ -103,6 +126,10 @@
   --color-text-accent: var(--text-accent);
   --color-accent: var(--fill-accent);
   --color-on-accent: var(--fill-on-accent);
+  --color-band: var(--band-surface);
+  --color-band-text: var(--band-text);
+  --color-band-muted: var(--band-muted);
+  --color-band-accent: var(--band-accent);
 
   /*
    * Plus Jakarta Sans is self-hosted at build time by next/font, so there is

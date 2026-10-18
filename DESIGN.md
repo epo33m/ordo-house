@@ -33,7 +33,7 @@ Dial: ENERGY 2 / RHYTHM 2 / MOTION 1
 | Dial | Value | Why |
 |---|---|---|
 | ENERGY | 2 | Assured, not shouty. Says hello without performing. |
-| RHYTHM | 2 | Consistent grid with selective asymmetry for editorial character. Sections may break pattern when content earns it, not by default. |
+| RHYTHM | 3 | Sections visibly vary in composition, alignment, and surface. Raised from 2 on 2026-10-18: at RHYTHM 2 every section was a left-aligned heading plus a list at identical padding, which is the uniform-rhythm failure R-05 names. |
 | MOTION | 1 | Motion supports usability only. The brief states effects must not distract from content, so no scroll choreography, parallax, or reveals. |
 
 ### One deliberate peak
@@ -310,11 +310,69 @@ The `.strike-accent` utility remains in `globals.css` unused, ready for a
 headline where the device genuinely applies. If it is still unused when the
 tokens are next reviewed, delete it rather than leaving it to look intentional.
 
+**There is no eyebrow above the headline.** An earlier revision carried
+"Strategy, design, technology" there while the subhead directly below said the
+same three words. It added a line of reading and no fact, which is the R-09
+tell in its plainest form. The subhead carries that content and it is enough.
+
+### Copy decisions on record
+
+Two headings previously announced their own item count ("Three disciplines, one
+system", "Four words the work is held to"). Counting is an R-36 tell: the
+number is the model's way of sounding complete. The trio and the four are both
+real content, so they stayed; the headings stopped announcing them.
+
+- "What we bring to a project"
+- "What we judge the work against"
+
+The footer no longer reads "Direction documented in DESIGN.md". That was
+internal tooling text sitting on a public page.
+
 ### Page structure
 
-One page, five sections, in this order: hero, identity, capabilities,
-principles, contact. The order follows how a visitor decides, not a template:
-what this is, what it values, what it does, how it is judged, how to reach it.
+One page, three real sections. The order follows how a visitor decides: what
+this is and what it values, what it does, how it is judged, how to reach it.
+
+The identity words are **not** a section. They sit inside the hero as a
+horizontal strip under the actions, because four lookalike sections were worse
+than three sections that differ from each other (C-3).
+
+**Five distinct compositions**, which is what RHYTHM 3 requires:
+
+| # | Block | Alignment | Surface |
+|---|---|---|---|
+| 1 | Hero | centred | page |
+| 2 | Identity strip | left | page |
+| 3 | Capabilities | left, staggered | page |
+| 4 | Principles | left | inverted band |
+| 5 | Contact | centred | accent band |
+
+The alignment pattern is deliberate: centre opens, left carries the middle,
+centre closes. Three surfaces, so no two adjacent blocks read the same way.
+
+### Inverted and accent bands
+
+| Role | Dark mode | Light mode |
+|---|---|---|
+| `--band-surface` | Snow `#FFFAFA` | Charcoal `#2B2B2B` |
+| `--band-text` | Charcoal `#2B2B2B` | Snow `#FFFAFA` |
+| `--band-muted` | `#57534C` | `#C9C4BD` |
+| `--band-accent` | `#6B5A3C` | `#A8905F` |
+
+The band **inverts per mode**, which is the point. A Snow band on the light
+canvas would be a 1.04:1 edge and effectively invisible; inverting gives a
+15.94:1 edge in dark and 12.57:1 in light.
+
+| Pairing | Ratio |
+|---|---|
+| Charcoal on Snow (dark band) | 13.69:1 |
+| `#6B5A3C` on Snow (dark band accent) | 6.44:1 |
+| Snow on Charcoal (light band) | 13.69:1 |
+| `#A8905F` on Charcoal (light band accent) | 4.60:1 |
+
+The contact band uses `--fill-accent`, which is Tobacco **Strong** `#7E6B4B`
+in both modes: Snow on it is 4.96:1. The brand hue fails at 4.12:1, so it is
+never used as a fill behind text.
 
 **Deliberately absent:** work or portfolio, testimonials, client logos,
 statistics, pricing, and FAQ. Each would require content that does not exist
@@ -325,6 +383,18 @@ moment there is real material to put in it.
 Contact is a `mailto:`, not a form. A form with no endpoint to submit to is
 exactly the dead control R-26 targets, and antislop counts a real external
 action as functional.
+
+### Mobile register
+
+Section padding is `py-12 sm:py-16 lg:py-24`, which maps onto the spacing
+tokens above (48 / 64 / 96px) rather than inventing new values. The previous
+`py-20 md:py-28` put 160px of dead space above and below every section on a
+phone.
+
+Responsive layouts use three states, not two: single column, two columns when
+content starts wrapping badly, and the full grid only when it genuinely fits.
+The capabilities stagger starts at `lg` rather than `md` because a 5/6/5 split
+with offsets is cramped between 768 and 1024.
 - **Services**: state the outcome, not only the name.
 - **Work**: lead with the work. Never invent results or metrics (R-17, R-36).
 - **Journal**: reading comfort first, consistent heading, list, quote, and code
