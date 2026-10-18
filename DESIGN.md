@@ -380,6 +380,53 @@ appears twice per page.
 
 This closes the R-23 open item carried since the design system was installed.
 
+### Structural import from Apple
+
+Owner instruction, 2026-10-18: take Apple's **layout, structure, and hierarchy**
+only. Installed with `bunx getdesign add apple` into `apple/DESIGN.md`
+(MIT, [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)).
+That file is **reference, not direction**; see AGENTS.md.
+
+| Adopted | Value | Was |
+|---|---|---|
+| Hero scale | 28 / 34 / 40 / 56px | `clamp(2.5rem, 7vw, 5.5rem)` topping at 88px |
+| Hero weight, leading | 600 / 1.07 | 750 / 0.95 |
+| Body size and line | 17px / 1.47 (25px line) | 16px / 1.65 |
+| Section padding | 48 / 64 / **80px** | 48 / 64 / 96px |
+| Text container | **980px** for prose | 1440px only |
+| Breakpoints | 480 / 640 / 833 / **1068** / 1440 | 640 / 1024 |
+
+Apple's spacing is an 8px base, which this system already used. Its
+whitespace rule, at least 64px of air above a headline and 48 to 64px below,
+is satisfied by the 80px section. Its observation that tiles stack
+edge-to-edge with no gap and "the colour change provides the break" is what
+the band tokens already do.
+
+**Two things deliberately not imported:**
+
+- **Flat 80px section padding.** Apple's own responsive table tightens it to
+  48px on a small phone, so the curve is taken rather than the number.
+  `antislop-layoutmobile` bans desktop-scale padding held on mobile.
+- **Apple's dense footer.** Its file notes the footer is the one place Apple
+  breaks its whitespace rule, to expose the full information architecture at a
+  glance. That cannot be done honestly here: there is no real IA to expose, and
+  R-24 and R-26 forbid links to nowhere. Inventing a link column to fill it
+  would be worse than the sparse footer.
+
+**Refused outright:** Apple's palette (Action Blue `#0066cc`) and its type
+(SF Pro). Adopting either would be a different brand, not a different layout.
+
+**R-30 note.** Apple's *layout grammar* carried on ORDO's palette and typeface
+is influence, not cloning. The test is whether the result still belongs to
+ORDO: swap the logo and it must not read as apple.com. It does not, because the
+palette, type, and mark are ORDO's. This is recorded so a later pass does not
+drift from borrowing structure into copying identity.
+
+**Hero tracking, deliberately unresolved.** Apple pairs its 56px hero with
+-0.28px tracking. ORDO keeps a positive value because the expanded look was an
+owner instruction, halved from 0.02em to 0.01em since the hero is now half the
+size it was when that value was set.
+
 ### Page structure
 
 One page, three real sections. The order follows how a visitor decides: what

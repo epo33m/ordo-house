@@ -62,11 +62,19 @@ These skills are vendored from `miqdadbadjuber/anti-slop` (v3.2.21) into the glo
 
 ## Design system
 
-**For any UI work, read `DESIGN.md` first for direction, then apply antislop as the filter.** Direction and filter are separate jobs: `DESIGN.md` supplies identity, palette, type, spacing, and dials; antislop rejects generic output and runs the Delivery Gate. Neither replaces the other.
+**The active direction is `./DESIGN.md`.** For any UI work, read it first, then apply antislop as the filter. Direction and filter are separate jobs: `DESIGN.md` supplies identity, palette, type, spacing, and dials; antislop rejects generic output and runs the Delivery Gate. Neither replaces the other.
 
 Tokens are implemented in `src/app/globals.css` as Tailwind v4 `@theme` variables, loaded via `next/font` in `src/app/layout.tsx`. Components read tokens, never raw hex.
 
 Contrast values in `DESIGN.md` are measured, not estimated. Re-run `python3 ~/.config/opencode/skills/antislop-human/contrast-check.py "#fg" "#bg"` before changing any colour, and keep both modes working.
+
+### `apple/DESIGN.md` is reference only, not direction
+
+Vendored from [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md), MIT licensed, installed 2026-10-18 with `bunx getdesign add apple`.
+
+**Do not treat it as the design system for this project.** It carries frontmatter `name: Apple-design-analysis`, which is easy to mistake for active direction. It is a third-party analysis of Apple's brand, consulted only for **layout, structure, and hierarchy**: spacing scale, container widths, whitespace rhythm, responsive curve, and content-driven breakpoints. Its palette (Action Blue), its type (SF Pro), and its dense footer are all deliberately **not** adopted.
+
+The CLI prints `cp apple/DESIGN.md ./DESIGN.md` after installing. **Do not run that.** It would replace the ORDO system and lose the measured contrast tables, band tokens, dials, and logo documentation. ORDO's palette, Plus Jakarta Sans, RHYTHM 3, and both colour modes all stay.
 
 ## Apple Human Interface Guidelines
 

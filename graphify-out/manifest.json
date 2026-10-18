@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1792331423.243251,
-    "seen": 1792331444.927799,
-    "ast_hash": "b88fa7fd8a473966a4cb763a5beb10e8",
+    "mtime": 1792332969.7407327,
+    "seen": 1792333134.812133,
+    "ast_hash": "caf058cd91b1d8f31a192585fecb53f2",
     "semantic_hash": ""
   },
   "README.md": {
@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792332619.2748847,
-    "seen": 1792332652.3098938,
-    "ast_hash": "c1215e9a8e8d18520acc06600421c81b",
+    "mtime": 1792333029.4133036,
+    "seen": 1792333134.812129,
+    "ast_hash": "27060229717b0f820fbdbeff9ce69289",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1792332625.9442725,
-    "seen": 1792332652.309899,
-    "ast_hash": "b7a203144c2312469adf47788cf1908b",
+    "mtime": 1792333108.563243,
+    "seen": 1792333134.8121338,
+    "ast_hash": "ba8243a8065677ef26e695bc7fcedac1",
     "semantic_hash": ""
   },
   ".opencode/commands/duo.md": {
@@ -117,6 +117,12 @@
     "mtime": 1792332417.9210453,
     "seen": 1792332472.6558652,
     "ast_hash": "1a96ffcbba05eb1aff2add9069e9af74",
+    "semantic_hash": ""
+  },
+  "apple/DESIGN.md": {
+    "mtime": 1792332947.6774814,
+    "seen": 1792333134.812136,
+    "ast_hash": "9b1bde505a01daafb7e07263fe388bbe",
     "semantic_hash": ""
   }
 }

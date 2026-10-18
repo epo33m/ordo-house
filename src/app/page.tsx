@@ -62,12 +62,19 @@ const PRINCIPLES = [
 const CONTACT_EMAIL = "hello@ordo.example";
 
 /**
- * Section padding. Mobile gets a real register rather than the desktop value:
- * 48px on a phone, 64px at tablet, 96px on desktop, matching the spacing
- * tokens in DESIGN.md rather than inventing new ones.
+ * Section padding. Apple uses an 80px section on desktop and tightens to 48px
+ * on a small phone, so the curve is adopted rather than its flat 80px:
+ * antislop-layoutmobile bans desktop-scale padding held on mobile.
  */
-const SECTION_PAD = "py-12 sm:py-16 lg:py-24";
+const SECTION_PAD = "py-12 sm:py-16 lg:py-20";
 const SECTION_W = "w-[min(calc(100%_-_3rem),var(--container-max))]";
+
+/**
+ * Apple's split: about 980px for text-heavy sections, about 1440px for grids.
+ * Prose blocks take the narrower measure; the staggered capabilities grid and
+ * the identity strip keep the wide one because they carry columns.
+ */
+const TEXT_W = "w-[min(calc(100%_-_3rem),var(--container-text))]";
 
 export default function Home() {
   return (
@@ -204,7 +211,7 @@ export default function Home() {
           aria-labelledby="principles-heading"
           className="scroll-mt-16 bg-band text-band-text"
         >
-          <div className={`mx-auto ${SECTION_W} ${SECTION_PAD}`}>
+          <div className={`mx-auto ${TEXT_W} ${SECTION_PAD}`}>
             <h2 id="principles-heading" className="text-h2 max-w-[24ch] text-band-text">
               How the work is judged
             </h2>
@@ -242,7 +249,7 @@ export default function Home() {
           aria-labelledby="contact-heading"
           className="scroll-mt-16 bg-accent text-on-accent"
         >
-          <div className={`mx-auto ${SECTION_W} ${SECTION_PAD} flex flex-col items-center text-center`}>
+          <div className={`mx-auto ${TEXT_W} ${SECTION_PAD} flex flex-col items-center text-center`}>
             <h2 id="contact-heading" className="text-h2 max-w-[22ch]">
               Tell us what you are building
             </h2>

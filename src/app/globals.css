@@ -118,6 +118,22 @@
   --charcoal-deep: #1f1f1f;
 }
 
+/*
+ * Breakpoints are Apple's structural values rather than Tailwind's defaults,
+ * because antislop-layoutmobile asks for breakpoints placed where the content
+ * stops working, not where a device list happens to sit. Apple derives these
+ * from analysed pages: 480 small phone, 640 phone, 833 tablet landscape,
+ * 1068 small desktop, 1440 content lock. Only sm and lg were in use before
+ * this, so the remap moved lg from 1024 to 1068 and left sm at 640.
+ */
+@theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 833px;
+  --breakpoint-lg: 1068px;
+  --breakpoint-xl: 1440px;
+}
+
 @theme inline {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
@@ -144,8 +160,12 @@
 
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
-  --text-body: 1rem;
-  --text-body--line-height: 1.65;
+  /*
+   * Apple reports a 17px body on a roughly 25px line as a rhythm constant on
+   * every page it analysed, so the scale is adopted rather than guessed.
+   */
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.47;
   --text-body-lg: 1.125rem;
   --text-body-lg--line-height: 1.6;
   --text-h3: clamp(1.375rem, 2vw, 1.75rem);
@@ -154,8 +174,13 @@
   --text-h2--line-height: 1.15;
   --text-h1: clamp(2.25rem, 5vw, 4rem);
   --text-h1--line-height: 1.1;
-  --text-hero: clamp(2.5rem, 7vw, 5.5rem);
-  --text-hero--line-height: 1;
+  /*
+   * Hero follows Apple's hero-display curve: 56px desktop, 40px at 1068,
+   * 34px at 640, 28px at 419. The staircase is expressed as a clamp so it
+   * scales continuously between those points rather than jumping.
+   */
+  --text-hero: clamp(1.75rem, 4.6vw, 3.5rem);
+  --text-hero--line-height: 1.07;
 
   --radius-small: 8px;
   --radius-button: 12px;
@@ -165,15 +190,25 @@
   /*
    * Tracking stands in for a wider cut of the face. Helvetica ships no
    * Expanded width and a licensed one cannot be served on the web, so the
-   * expanded feel comes from letterspacing instead. The effect scales with
-   * size: it is most visible at hero size and drops away by h3, where any
-   * real widening would be too tight to read anyway.
+   * expanded feel comes from letterspacing instead.
+   *
+   * Apple pairs its 56px hero with -0.28px tracking. ORDO keeps a positive
+   * value instead, because the expanded look was an owner instruction, but it
+   * is halved: the hero is now half the size it was when 0.02em was set, and
+   * the same ratio at 56px would read heavy. Set it negative if the owner
+   * decides Apple's exact pairing wins.
    */
-  --tracking-display: 0.02em;
+  --tracking-display: 0.01em;
   --tracking-heading: 0.012em;
   --tracking-tight: 0.005em;
 
   --container-max: 1440px;
+  /*
+   * Apple splits content width by kind: about 980px for text-heavy sections,
+   * about 1440px for product grids. ORDO prose blocks use this, the staggered
+   * capabilities grid and the identity strip stay on --container-max.
+   */
+  --container-text: 980px;
   --grid-gutter: 24px;
 
   --shadow-overlay: var(--shadow-overlay);
@@ -200,8 +235,13 @@
     letter-spacing: var(--tracking-tight);
   }
 
+  /*
+ * Apple pairs its display sizes with weight 600 and a line-height near 1.07,
+ * which is calmer than the 750 this system started on. Adopted so the hero
+ * scale and its weight agree with each other rather than fighting.
+ */
   h1 {
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: var(--tracking-display);
   }
 
