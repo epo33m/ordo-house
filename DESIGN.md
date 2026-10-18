@@ -158,6 +158,32 @@ minimum.
 - No webfont request: the face is referenced by name, so there is no download
   and no layout shift.
 
+### Expanded is tracking, not width
+
+Owner asked for Helvetica Expanded on 2026-10-18. It could not be delivered as
+asked, and the substitution is recorded here rather than left to be discovered.
+
+- Helvetica has no Expanded width. macOS and iOS ship Helvetica Neue with
+  Light, Medium, Bold, Thin, and two Condensed cuts, but nothing wider.
+- `font-stretch` was not used. It only applies to variable fonts or families
+  that declare width variants, so on a static system face it does nothing at
+  all while still passing lint and typecheck.
+- A licensed Helvetica Expanded cannot be served on the web without a Linotype
+  web licence, so it cannot be self-hosted either.
+- What ships instead is letterspacing: `--tracking-display` 0.02em,
+  `--tracking-heading` 0.012em, `--tracking-tight` 0.005em.
+
+**What this is and is not.** Tracking changes texture, not proportion. A real
+Expanded cut has wider glyphs; letterspaced Helvetica has the same glyphs set
+further apart. It reads as an editorial, airy treatment, which is a legitimate
+look, but it is not a wider cut of the same face and should not be described as
+one. Past roughly 0.06em the effect stops reading as a width and starts reading
+as a different typographic decision, so the values stay small.
+
+If a genuine wide cut is wanted later, the honest route is a variable grotesque
+with a real width axis, such as Archivo, accepting one webfont request. That was
+offered and declined in favour of tracking.
+
 ---
 
 ## 4. Layout and spacing

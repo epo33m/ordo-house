@@ -137,6 +137,17 @@
   --radius-card: 16px;
   --radius-large: 20px;
 
+  /*
+   * Tracking stands in for a wider cut of the face. Helvetica ships no
+   * Expanded width and a licensed one cannot be served on the web, so the
+   * expanded feel comes from letterspacing instead. The effect scales with
+   * size: it is most visible at hero size and drops away by h3, where any
+   * real widening would be too tight to read anyway.
+   */
+  --tracking-display: 0.02em;
+  --tracking-heading: 0.012em;
+  --tracking-tight: 0.005em;
+
   --container-max: 1440px;
   --grid-gutter: 24px;
 
@@ -161,15 +172,17 @@
   h1,
   h2,
   h3 {
-    letter-spacing: -0.02em;
+    letter-spacing: var(--tracking-tight);
   }
 
   h1 {
     font-weight: 700;
+    letter-spacing: var(--tracking-display);
   }
 
   h2 {
     font-weight: 600;
+    letter-spacing: var(--tracking-heading);
   }
 
   h3 {
