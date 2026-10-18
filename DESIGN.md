@@ -335,19 +335,35 @@ internal tooling text sitting on a public page.
 The mark is a disc with an inner circle that pinches into a stem flaring to
 the disc edge. Owner asset, supplied 2026-10-18 as a logo board.
 
-Shipped as inline SVG in `src/components/logo.tsx`, reconstructed by measuring
-the supplied raster at 140px and fitting the geometry: disc `r=70` at
-(70,70), inner circle `r=23` at (70,67), stem half-width 9 at `y=92` flaring
-0.3875 per side. Reconstruction differs from the source by 2.2% of pixels.
+Shipped as inline SVG in `src/components/logo.tsx`, from the owner vector
+supplied 2026-10-18. Geometry is untouched from the source: disc `r=70.312`
+at (90,90), inner circle `r=22.852` on the same centre, and a stem running
+from that centre out to the disc edge.
 
-Two things recorded rather than assumed:
+Before the vector arrived, the mark was reconstructed from the supplied raster
+board by measuring the silhouette at 140px and fitting it. That fit differed
+from the source by 2.2% of pixels and got the stem's construction wrong: it
+measured as a trapezoid pinching below the inner circle, where the real path
+is a triangle whose apex sits on the disc centre. The two agree below the
+inner circle, which is why the error was small. The reconstruction is gone.
 
-- **Replace it with the real vector export when one exists.** This was fitted
-  from a raster presentation board, not taken from a source file.
+Two changes to the supplied file, both deliberate:
+
+- **The disc is `currentColor`, not `#FFFAFA`.** One component is then correct
+  on canvas, on the inverted band, and on the accent band without a variant
+  per theme.
+- **The mask id is generated, not the literal `mask0_30_10`,** because the mark
+  renders twice per page and a repeated id would collide. The supplied
+  `clipPath` is dropped: it clips to the 180x180 viewBox, which the viewBox
+  already does.
+
+One thing still recorded rather than assumed:
+
 - **The mark is used alone; the wordmark stays live text.** The board's
   wordmark reads ORDO in a squarish techno face that is not Plus Jakarta Sans,
-  and the brand is now Ordo House, so using the board's wordmark image would
-  both contradict the name and clash with the site typeface.
+  and the brand is now Ordo House, so using the board's wordmark would both
+  contradict the name and clash with the site typeface. Send the real wordmark
+  vector and it can replace the text.
 
 The knockout is an SVG mask, not a second colour, so the cut is genuinely
 transparent and one component works on canvas, inverted band, and accent band.
