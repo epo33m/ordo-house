@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792334391.0052495,
-    "seen": 1792334483.072282,
-    "ast_hash": "e574ac42eb47e2071d40c5e579a0d4be",
+    "mtime": 1792334565.4870896,
+    "seen": 1792334686.227947,
+    "ast_hash": "4abf215f23f952db5b6f2898f36052e2",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -96,15 +96,15 @@
     "semantic_hash": ""
   },
   "src/components/theme-toggle.tsx": {
-    "mtime": 1792330223.6737022,
-    "seen": 1792330292.633754,
-    "ast_hash": "70308a88df2662c16bbb8ed353675428",
+    "mtime": 1792334558.6080236,
+    "seen": 1792334686.2279491,
+    "ast_hash": "e5c5e76494f01c0c331bd68e98a2c2b2",
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1792334452.591463,
-    "seen": 1792334483.072288,
-    "ast_hash": "3216ae17c12d762fbb9ed93072bc3c7a",
+    "mtime": 1792334654.9846573,
+    "seen": 1792334686.227954,
+    "ast_hash": "afe068387cc4455527b49808fe619a7a",
     "semantic_hash": ""
   },
   ".opencode/commands/duo.md": {

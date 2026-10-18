@@ -96,10 +96,19 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-      className="inline-flex h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] border border-[var(--border-strong)] text-text transition-colors hover:bg-surface"
+      className="inline-flex h-11 min-w-11 items-center justify-center rounded-[var(--radius-button)] px-2 text-text transition-colors hover:bg-surface"
     >
-      {/* Decorative: the accessible name comes from aria-label. */}
-      <span aria-hidden="true" className="text-sm font-medium tracking-wide">
+      {/*
+        Decorative: the accessible name comes from aria-label.
+
+        No border, and quiet rather than medium weight, following Apple's
+        global nav, where the controls are unboxed text. The border existed
+        because the control sat inside a padded 76 to 84px bar with air
+        around it; at Apple's 44px bar the control fills the bar, and a box
+        drawn edge to edge across the full height reads as a mistake rather
+        than as a control. The 44px box is still the tap target.
+      */}
+      <span aria-hidden="true" className="text-caption tracking-[0.02em]">
         {theme === "dark" ? "Light" : "Dark"}
       </span>
     </button>

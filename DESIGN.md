@@ -313,10 +313,39 @@ than as a separate paragraph.
 
 **Hero height is one viewport, following Apple's tile model.** `apple/DESIGN.md`
 records that each Apple tile occupies roughly one viewport. The hero is
-`min-h-[calc(100svh-4.75rem)]`, rising to `calc(100svh-5.25rem)` at sm. The
-subtraction is the header, which is a normal-flow sibling: a bare `100svh`
-would push the lockup below the fold by exactly the header height. `svh`
-rather than `vh` so a retracting mobile URL bar cannot cut the hero short.
+`min-h-[calc(100svh-2.75rem)]`. The subtraction is the header, which is a
+normal-flow sibling: a bare `100svh` would push the lockup below the fold by
+exactly the header height. `svh` rather than `vh` so a retracting mobile URL
+bar cannot cut the hero short.
+
+### Header
+
+The header is Apple's `global-nav` height: 44px, per `apple/DESIGN.md`
+`{component.global-nav}`. It was 76px at the base size and 84px from sm,
+because `py-4 sm:py-5` was padding wrapped around a 44px control, so the
+padding was most of the bar. Measured after the change: 45px at every width,
+which is the 44px bar plus its 1px hairline.
+
+Two decisions follow from the 44px target rather than from taste:
+
+**The toggle is borderless.** The control is 44px tall because R-03 sets that
+as the tap-target minimum, so at a 44px bar it fills the bar outright and there
+is no vertical padding left to give. A bordered box drawn edge to edge across
+the full bar height reads as a mistake, not as a control. Apple avoids this the
+same way: its global nav describes quiet, unboxed links with a right-aligned
+icon cluster. The border existed because the control used to sit inside air.
+The 44px hit area is unchanged, and the focus ring is verified present in both
+themes at 2px solid with a 3px offset.
+
+**The mark is 20px, not Apple's 14px.** This logo is a filled shape with more
+visual weight than a wordmark glyph, and 20px is also what the footer uses, so
+the two ends of the page stay consistent. The label is 13px, the caption token,
+against Apple's 12px nav-link; the 1px difference is not worth introducing a
+size that exists nowhere else in this scale.
+
+Because the header is now one height at every width, the hero's subtraction is
+a single value again. If the header ever goes back to a padded height, the hero
+needs two values, as it had before.
 
 **The lockup is centred in that height.** There was a period when the tile was
 split into two groups, the lockup and an identity strip, with the strip pushed
@@ -332,10 +361,12 @@ the strip and the bottom of the screen, and the eye read that band as
 unfinished. Removing the strip fixed it for a different reason than expected,
 since there is now nothing left to float in the space.
 
-Measured, hero as a share of viewport: 91% at 1440x900, 92% at 1920x1080, 92%
-at 768x1024, 91% at 390x844, and 89% at 375x667. That last one is the shortest
-common phone and it is the case the strip used to break: with the strip present
-the hero ran to 117% of the viewport and pushed content below the fold, because
+Measured, hero as a share of viewport: 95% at 1440x900, 96% at 1920x1080, 96%
+at 768x1024, 95% at 390x844, and 93% at 375x667. Those figures are with the
+44px header in place; before it, at 89 to 92%, because a taller header was
+eating into the tile. At 375x667, the shortest common phone, the hero was the
+case the strip used to break: with the strip present it ran to 117% of the
+viewport and pushed content below the fold, because
 min-height cannot shrink content. It now fits. Centring is exact: 244px above
 the mark and 244px below the last CTA at 1440x900.
 

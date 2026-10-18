@@ -77,14 +77,30 @@ export default function Home() {
   return (
     <>
       <header className="border-b border-[var(--border-subtle)]">
-        <div className={`mx-auto flex ${SECTION_W} items-center justify-between py-4 sm:py-5`}>
+        {/*
+            Height is Apple's global-nav height, 44px, per apple/DESIGN.md
+            `{component.global-nav}`. It was 76px base and 84px from sm,
+            because py-4 sm:py-5 was padding around a 44px control: the
+            padding was most of the bar.
+
+            The control is 44px tall for the tap-target minimum (R-03), so it
+            fills the bar outright and there is no vertical padding left to
+            give. A bordered box that fills its own bar reads as a mistake,
+            which is why the toggle below is borderless, matching Apple, whose
+            nav links are quiet and unboxed.
+        */}
+        <div className={`mx-auto flex ${SECTION_W} h-11 items-center justify-between`}>
           {/*
             Mark only, owner instruction 2026-10-18. The wordmark was removed
             from the header: the hero now carries the mark above the name, so
             the name was appearing twice in the first screen. The mark is
             distinctive enough to stand alone as the way back to the top.
+
+            20px, not Apple's 14px logo, because this mark is a filled shape
+            with more visual weight than a wordmark glyph, and 20px is also
+            what the footer uses, so the two stay consistent.
           */}
-          <Logo className="h-7 w-7 shrink-0 text-text" />
+          <Logo className="h-5 w-5 shrink-0 text-text" />
           <nav aria-label="Theme">
             <ThemeToggle />
           </nav>
@@ -101,6 +117,11 @@ export default function Home() {
             rather than vh so a retracting mobile URL bar cannot cut the hero
             short.
 
+            The header is 44px at every width, matching Apple's global-nav, so
+            the subtraction is a single value rather than the two it needed
+            when the header was 76px base and 84px from sm. If the header ever
+            goes back to padding-driven height, this needs both values again.
+
             The lockup is centred in that height. It was previously a group
             inside a two-group tile, the other group being the identity strip,
             which has since been removed; with one group left the wrapper div
@@ -108,7 +129,7 @@ export default function Home() {
           */}
           <section
             aria-labelledby="hero-heading"
-            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col items-center justify-center py-10 text-center sm:min-h-[calc(100svh-5.25rem)] sm:py-16`}
+            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-2.75rem)] flex-col items-center justify-center py-10 text-center sm:py-16`}
           >
           {/*
             Mark above the title, owner instruction 2026-10-18. The h1 is
