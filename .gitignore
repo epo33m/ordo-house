@@ -46,3 +46,7 @@ graphify-out/20*/
 
 # apple-hig skill: 3.8MB of Apple's content, reinstalled not committed
 .opencode/skills/
+
+# Playwright
+/test-results/
+/playwright-report/

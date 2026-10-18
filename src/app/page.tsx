@@ -259,7 +259,15 @@ export default function Home() {
             <h2 id="contact-heading" className="text-h2 max-w-[22ch]">
               Tell us what you are building
             </h2>
-            <p className="mt-5 max-w-[52ch] text-body-lg text-pretty opacity-90">
+            {/*
+              No opacity here or on the caption below. Fading white on the
+              Tobacco Strong band composites to 3.58:1 at opacity-75 and
+              4.38:1 at opacity-90, both under the 4.5:1 floor for body copy.
+              The band clears 4.5:1 at full strength with only 0.46 of
+              headroom, so there is no faded tint that would still pass:
+              hierarchy comes from size, not from washing the text out.
+            */}
+            <p className="mt-5 max-w-[52ch] text-body-lg text-pretty">
               Send the problem rather than the brief. We would rather start from
               what is actually in the way.
             </p>
@@ -269,7 +277,7 @@ export default function Home() {
             >
               Email ORDO
             </a>
-            <p className="mt-4 text-caption opacity-75">Address to confirm: {CONTACT_EMAIL}</p>
+            <p className="mt-4 text-caption">Address to confirm: {CONTACT_EMAIL}</p>
           </div>
         </section>
       </main>
@@ -282,7 +290,17 @@ export default function Home() {
             <Logo className="h-5 w-5 shrink-0" />
             ORDO HOUSE
           </span>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="underline-offset-4 hover:underline">
+          {/*
+            Inline-flex with a min-height, so the tap area is 44px even though
+            the text is caption-sized. Padding alone would have left the
+            target at 20px, which fails the mobile minimum (R-03). The padding
+            is negative on the inline axis so the link still reads flush with
+            the wordmark baseline.
+          */}
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="inline-flex min-h-11 items-center px-1 underline-offset-4 hover:underline"
+          >
             {CONTACT_EMAIL}
           </a>
         </div>

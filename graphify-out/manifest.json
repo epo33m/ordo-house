@@ -1,8 +1,8 @@
 {
   "package.json": {
-    "mtime": 1792328025.6115243,
-    "seen": 1792329026.8970869,
-    "ast_hash": "f30525d0bd98820d2641e9b2218558eb",
+    "mtime": 1792333928.1051257,
+    "seen": 1792333940.2503512,
+    "ast_hash": "09e71206a17155eecbcdc2c56e4235b6",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -48,9 +48,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1792333508.7354228,
-    "seen": 1792333539.7943711,
-    "ast_hash": "73d20e3c158ceb63ac4753dbab6795ca",
+    "mtime": 1792333809.7332125,
+    "seen": 1792333940.250355,
+    "ast_hash": "000ccba3933fb2f64650218bbec58577",
     "semantic_hash": ""
   },
   "public/file.svg": {
@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "DESIGN.md": {
-    "mtime": 1792333518.965843,
-    "seen": 1792333539.794376,
-    "ast_hash": "0d85e115dc4d816c26b5a450f06f9ae6",
+    "mtime": 1792333936.9428353,
+    "seen": 1792333940.2503612,
+    "ast_hash": "cf94fc3cff4abdaddb1c237b770f4333",
     "semantic_hash": ""
   },
   ".opencode/commands/duo.md": {
@@ -123,6 +123,18 @@
     "mtime": 1792332947.6774814,
     "seen": 1792333134.812136,
     "ast_hash": "9b1bde505a01daafb7e07263fe388bbe",
+    "semantic_hash": ""
+  },
+  "playwright.config.ts": {
+    "mtime": 1792333690.203041,
+    "seen": 1792333940.2503529,
+    "ast_hash": "b835170db6b9cba6ffba425daf55dcfb",
+    "semantic_hash": ""
+  },
+  "tests/click-through.spec.ts": {
+    "mtime": 1792333858.3107235,
+    "seen": 1792333940.250357,
+    "ast_hash": "189f070dea7c22e5d3f0778e6fd9be4c",
     "semantic_hash": ""
   }
 }

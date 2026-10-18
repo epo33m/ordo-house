@@ -554,6 +554,25 @@ shift. Both colour modes are implemented and verified; the toggle in
 
 Do not hardcode hex values in components. Read the token.
 
+### Verification
+
+`bun run test:e2e` drives a real Chromium against the running server and
+asserts on observed state: every control clicked, the theme attribute read
+after each click, the URL hash and viewport after each anchor, computed
+contrast read from the browser, and element boxes measured at six widths.
+
+Contrast is measured from **composited** colours, not from the token table.
+That distinction caught a real failure the table could not: the contact band
+used `opacity-90` and `opacity-75` on white, which composites to 4.38:1 and
+3.58:1 against Tobacco Strong, both under the 4.5:1 floor. The token passes at
+full strength, so a check reading the token alone would have passed them. The
+opacity was removed; hierarchy on that band now comes from size.
+
+Run it against a production build when the result matters, and make sure the
+port is actually free first: a stale dev server answers on 2026 and the
+production start silently fails with EADDRINUSE, so the suite runs against
+the wrong build and reports 500s that look like page defects.
+
 ---
 
 ## 10. Open items
@@ -562,3 +581,5 @@ Do not hardcode hex values in components. Read the token.
   Define only when a page needs them, not in advance.
 - Breakpoints are provisional until real pages prove them.
 - Add component variants only when real page requirements demand them.
+- `hello@ordo.example` in `src/app/page.tsx` is a labelled placeholder. The
+  real inbox is the owner's to supply; it must not be guessed.
