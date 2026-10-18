@@ -111,10 +111,29 @@ text and negative space, 10% Tobacco family for actions and highlights.
 
 | Role | Typeface | Weight | Reason |
 |---|---|---|---|
-| Display | Space Grotesk | 700 | Distinctive technology-meets-creativity voice. **Reason recorded because antislop R-06 names Space Grotesk and Inter as common AI defaults**; the choice is deliberate, not default. |
-| Heading | Space Grotesk | 600 | Same voice, quieter. |
-| Body | Inter | 400 | Legibility and dependable UI typography at small sizes. |
-| Emphasis | Inter | 500 / 600 | Labels and metadata. |
+| Display | Helvetica Neue / Helvetica | 700 | Owner direction, 2026-10-18: the system uses Helvetica throughout. A neutral, editorial grotesque that lets the khaki accent carry the identity instead of the type. |
+| Heading | Helvetica Neue / Helvetica | 600 | Same face, quieter weight. |
+| Body | Helvetica Neue / Helvetica | 400 | Same face, tuned for reading. |
+| Emphasis | Helvetica Neue / Helvetica | 500 / 600 | Labels and metadata. |
+
+### Direction override on record
+
+antislop R-06 names Space Grotesk and Inter as common AI-default picks. The
+owner replaced both with Helvetica. This is a deliberate identity choice, not a
+default, and the override is recorded here so the choice is never mistaken for
+an unexamined one later.
+
+Two consequences, accepted:
+
+- **Display and body are now the same face.** Hierarchy comes from weight, size,
+  and spacing rather than a contrast of typefaces. `--font-display` is kept as a
+  role token so a distinct display face can be introduced later without touching
+  every component.
+- **The face resolves per platform.** macOS and iOS get Helvetica Neue, older
+  systems get Helvetica, and Windows and Linux fall back to Arial or the system
+  sans. Rendering differs slightly by platform. Self-hosting a metrically
+  similar open alternative would remove that variance at the cost of departing
+  from the direction, so it was not done.
 
 ### Scale
 
@@ -136,7 +155,8 @@ minimum.
 - Sentence case for headings. All caps only for short labels and metadata.
 - Max two font weights per page.
 - Comfortable reading width for long-form body copy.
-- Fonts load through `next/font` with real fallbacks, no layout shift.
+- No webfont request: the face is referenced by name, so there is no download
+  and no layout shift.
 
 ---
 
@@ -251,9 +271,10 @@ the live Apple pages as authoritative over this summary.
 
 ## 9. Implementation
 
-Tokens live in `src/app/globals.css` as Tailwind v4 `@theme` variables, loaded
-by `next/font` in `src/app/layout.tsx`. Both colour modes are implemented and
-verified; the toggle in `src/components/theme-toggle.tsx` switches them.
+Tokens live in `src/app/globals.css` as Tailwind v4 `@theme` variables.
+Type is a system stack, so `src/app/layout.tsx` loads no webfont. Both colour
+modes are implemented and verified; the toggle in
+`src/components/theme-toggle.tsx` switches them.
 
 Do not hardcode hex values in components. Read the token.
 
