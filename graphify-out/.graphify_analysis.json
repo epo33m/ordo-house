@@ -1,0 +1,149 @@
+{
+  "communities": {
+    "0": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_compileroptions_noimplicitoverride",
+      "tsconfig_compileroptions_nopropertyaccessfromindexsignature",
+      "tsconfig_compileroptions_nouncheckedindexedaccess",
+      "tsconfig_compileroptions_nounusedlocals",
+      "tsconfig_compileroptions_nounusedparameters",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_verbatimmodulesyntax"
+    ],
+    "1": [
+      "package",
+      "package_engines",
+      "package_engines_bun",
+      "package_module",
+      "package_name",
+      "package_packagemanager",
+      "package_private",
+      "package_type"
+    ],
+    "2": [
+      "bun",
+      "package_devdependencies",
+      "package_devdependencies_bun",
+      "package_devdependencies_types_bun",
+      "package_devdependencies_typescript",
+      "types_bun",
+      "typescript"
+    ],
+    "3": [
+      "package_scripts",
+      "package_scripts_start",
+      "package_scripts_typecheck"
+    ],
+    "4": [
+      "ref_bun",
+      "tsconfig_compileroptions_types"
+    ],
+    "5": [
+      "ref_esnext",
+      "tsconfig_compileroptions_lib"
+    ],
+    "6": [
+      "index"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10526315789473684,
+    "1": 0.25,
+    "2": 0.2857142857142857,
+    "3": 0.6666666666666666,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 20
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 3
+    },
+    {
+      "id": "package_engines",
+      "label": "engines",
+      "degree": 2
+    },
+    {
+      "id": "package_devdependencies_bun",
+      "label": "bun",
+      "degree": 2
+    },
+    {
+      "id": "package_devdependencies_types_bun",
+      "label": "@types/bun",
+      "degree": 2
+    },
+    {
+      "id": "package_devdependencies_typescript",
+      "label": "typescript",
+      "degree": 2
+    },
+    {
+      "id": "tsconfig_compileroptions_types",
+      "label": "types",
+      "degree": 2
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 2
+    },
+    {
+      "id": "tsconfig_compileroptions_allowimportingtsextensions",
+      "label": "allowImportingTsExtensions",
+      "degree": 1
+    },
+    {
+      "id": "tsconfig_compileroptions_allowjs",
+      "label": "allowJs",
+      "degree": 1
+    }
+  ],
+  "surprises": [],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `compilerOptions` connect `compilerOptions` to `types`, `lib`?",
+      "why": "High betweenness centrality (0.279) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.095) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `scripts` connect `scripts` to `package.json`?",
+      "why": "High betweenness centrality (0.038) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `allowImportingTsExtensions`, `allowJs`, `jsx` to the rest of the system?",
+      "why": "30 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

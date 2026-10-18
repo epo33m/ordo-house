@@ -1,0 +1,20 @@
+{
+  "index.ts": {
+    "mtime": 1792326843.4616375,
+    "seen": 1792327165.149297,
+    "ast_hash": "30dc1c8733140d067c74eedf5f32fe87",
+    "semantic_hash": "30dc1c8733140d067c74eedf5f32fe87"
+  },
+  "package.json": {
+    "mtime": 1792326876.5033596,
+    "seen": 1792327165.149298,
+    "ast_hash": "6c6d33e0097d6d82775a04d308d8c18a",
+    "semantic_hash": "6c6d33e0097d6d82775a04d308d8c18a"
+  },
+  "tsconfig.json": {
+    "mtime": 1792326843.461703,
+    "seen": 1792327165.149299,
+    "ast_hash": "b1f6bb4129739fd7ec8529de1ccf7216",
+    "semantic_hash": "b1f6bb4129739fd7ec8529de1ccf7216"
+  }
+}
