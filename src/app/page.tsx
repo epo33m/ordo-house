@@ -96,10 +96,31 @@ export default function Home() {
 
       <main className="flex-1">
         {/* 1 of 5 compositions: centred, airy, on the page surface. */}
-        <section
-          aria-labelledby="hero-heading"
-          className={`mx-auto flex ${SECTION_W} min-h-[60svh] flex-col items-center justify-center py-12 text-center sm:py-16 lg:min-h-[76svh] lg:py-24`}
-        >
+        {/*
+            Height follows Apple's tile model: each tile occupies roughly one
+            viewport (apple/DESIGN.md, section 4). The unit is
+            `100svh - header`, because the header is a normal-flow sibling, so
+            a bare 100svh would push the lockup below the fold by exactly the
+            header height. svh rather than vh so the mobile URL bar retracting
+            cannot cut the hero short.
+
+            The identity strip's own top margin is trimmed at the base size
+            (mt-10 instead of mt-16) so it needs less vertical room, and it
+            relaxes to mt-20 once there is space.
+
+            Measured at 375x667, the shortest common phone: the hero comes to
+            111% of the viewport because the content genuinely needs more room
+            than one short screen holds, and min-height cannot shrink content.
+            What that costs is the identity strip, whose bottom lands at 778 on
+            a 667 screen. The primary lockup is unaffected: mark, name, role,
+            and both CTAs all finish at 372, well above the fold. The strip is
+            supporting detail and the lockup is the message, so the strip is
+            the right thing to push down.
+          */}
+          <section
+            aria-labelledby="hero-heading"
+            className={`mx-auto flex ${SECTION_W} min-h-[calc(100svh-4.75rem)] flex-col items-center justify-center py-10 text-center sm:min-h-[calc(100svh-5.25rem)] sm:py-16`}
+          >
           {/*
             Mark above the title, owner instruction 2026-10-18. The h1 is
             already the wordmark, so this puts the symbol and the name in that
@@ -153,7 +174,7 @@ export default function Home() {
             Three responsive states, not two: one column, then two when the
             words start wrapping badly, then four.
           */}
-          <div className="mt-16 w-full border-t border-[var(--border-subtle)] pt-8 text-left sm:mt-20 sm:pt-10">
+          <div className="mt-10 w-full border-t border-[var(--border-subtle)] pt-6 text-left sm:mt-20 sm:pt-10">
             <h2 className="text-caption uppercase tracking-[0.18em] text-text-accent">
               What we judge the work against
             </h2>

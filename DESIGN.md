@@ -311,6 +311,20 @@ these to a single value, and do not restore the old 32px under the name, the
 reason being that the subhead reads as part of the wordmark lockup rather
 than as a separate paragraph.
 
+**Hero height is one viewport, following Apple's tile model.** `apple/DESIGN.md`
+records that each Apple tile occupies roughly one viewport. The hero is
+`min-h-[calc(100svh-4.75rem)]`, rising to `calc(100svh-5.25rem)` at sm. The
+subtraction is the header, which is a normal-flow sibling: a bare `100svh`
+would push the lockup below the fold by exactly the header height. `svh`
+rather than `vh` so a retracting mobile URL bar cannot cut the hero short.
+
+Measured, hero as a share of viewport: 91% at 390x844, 92% at 768x1024, 91% at
+1440x900, 93% at 1440x1200. The exception is 375x667, the shortest common
+phone, where it reaches 111% because the content needs more room than one short
+screen holds and min-height cannot shrink content. The cost there is the
+identity strip, which lands 111px below the fold. The primary lockup is
+untouched: mark, name, role, and both CTAs all finish at 372 of 667.
+
 **There is no strikethrough.** An earlier revision used a struck article as a
 device. It was dropped because that device depends on a word that can be
 removed without breaking the sentence, and this headline has none. Striking
